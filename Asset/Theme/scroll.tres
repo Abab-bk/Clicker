@@ -1,0 +1,70 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://c7hfbhu8whrfq"]
+
+[ext_resource type="FontFile" uid="uid://cddpsm6ki37cr" path="res://Asset/Font/DreamSource/DreamHanSans-W14.ttc" id="1_ncxvc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dli2"]
+bg_color = Color(0.419608, 0.172549, 0.137255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.662745, 0.560784, 0.415686, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgjht"]
+bg_color = Color(0.196078, 0.184314, 0.156863, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.321569, 0.294118, 0.270588, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls5hs"]
+bg_color = Color(0.419608, 0.172549, 0.137255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.662745, 0.560784, 0.415686, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_kqlhf"]
+color = Color(0.156863, 0.14902, 0.152941, 1)
+thickness = 17
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_125f5"]
+color = Color(1, 0.886275, 0.698039, 1)
+thickness = 16
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_oy3ho"]
+color = Color(0.156863, 0.14902, 0.152941, 1)
+thickness = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtqe6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c00jo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[resource]
+default_font = ExtResource("1_ncxvc")
+Button/colors/font_color = Color(0.85098, 0.835294, 0.788235, 1)
+Button/colors/font_pressed_color = Color(1, 0.886275, 0.698039, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_4dli2")
+Button/styles/normal = SubResource("StyleBoxFlat_qgjht")
+Button/styles/pressed = SubResource("StyleBoxFlat_ls5hs")
+HSlider/styles/grabber_area = SubResource("StyleBoxLine_kqlhf")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxLine_125f5")
+HSlider/styles/slider = SubResource("StyleBoxLine_oy3ho")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_mtqe6")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_c00jo")

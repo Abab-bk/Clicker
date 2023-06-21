@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4bntskv5lsy6"]
+
+[ext_resource type="Theme" uid="uid://c7hfbhu8whrfq" path="res://Asset/Theme/scroll.tres" id="1_uexcs"]
+[ext_resource type="Script" path="res://Script/UI/MessagePopup.gd" id="2_uj6sb"]
+[ext_resource type="Texture2D" uid="uid://bwquosnkwdqtr" path="res://Asset/UI/Panel.png" id="3_h20v3"]
+[ext_resource type="FontFile" uid="uid://rery3p2p3u0s" path="res://Asset/Font/DreamSource/DreamHanSans-W23.ttc" id="4_3k77n"]
+
+[node name="Popup" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -300.0
+offset_right = 450.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uexcs")
+script = ExtResource("2_uj6sb")
+
+[node name="Popup" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_h20v3")
+patch_margin_left = 84
+patch_margin_top = 85
+patch_margin_right = 84
+patch_margin_bottom = 87
+
+[node name="VBox" type="VBoxContainer" parent="Popup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.114
+anchor_top = 0.065
+anchor_right = 0.887
+anchor_bottom = 0.935
+offset_left = 0.285995
+offset_top = 0.349998
+offset_right = -0.187012
+offset_bottom = -0.350037
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+
+[node name="VBox" type="VBoxContainer" parent="Popup/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Title" type="Label" parent="Popup/VBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_fonts/font = ExtResource("4_3k77n")
+theme_override_font_sizes/font_size = 56
+text = "标题"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Desc" type="Label" parent="Popup/VBox/VBox"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.729412, 0.713726, 0.670588, 1)
+theme_override_font_sizes/font_size = 56
+text = "内容"
+horizontal_alignment = 1
+
+[node name="Cancel" type="Button" parent="Popup/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "兑换"

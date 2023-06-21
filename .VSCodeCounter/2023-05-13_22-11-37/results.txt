@@ -1,0 +1,56 @@
+Date : 2023-05-13 22:11:37
+Directory : e:\Dev\Godot\佛祖放置\Script
+Total : 23 files,  886 codes, 58 comments, 255 blanks, all 1199 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| GDScript |         16 |        814 |         58 |        229 |      1,101 |
+| Markdown |          4 |         57 |          0 |         26 |         83 |
+| CSV      |          2 |         14 |          0 |          0 |         14 |
+| JSON     |          1 |          1 |          0 |          0 |          1 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                        | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                           |         23 |        886 |         58 |        255 |      1,199 |
+| . (Files)                                                                   |          2 |         41 |          0 |         13 |         54 |
+| .VSCodeCounter                                                              |          7 |         72 |          0 |         26 |         98 |
+| .VSCodeCounter\2023-04-29_22-58-04                                          |          7 |         72 |          0 |         26 |         98 |
+| Game                                                                        |          2 |         85 |          0 |         20 |        105 |
+| Global                                                                      |          6 |        574 |         58 |        153 |        785 |
+| UI                                                                          |          6 |        114 |          0 |         43 |        157 |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                    | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| e:\Dev\Godot\佛祖放置\Script\.VSCodeCounter\2023-04-29_22-58-04\details.md      | Markdown |         19 |          0 |          6 |         25 |
+| e:\Dev\Godot\佛祖放置\Script\.VSCodeCounter\2023-04-29_22-58-04\diff-details.md | Markdown |          9 |          0 |          6 |         15 |
+| e:\Dev\Godot\佛祖放置\Script\.VSCodeCounter\2023-04-29_22-58-04\diff.csv        | CSV      |          2 |          0 |          0 |          2 |
+| e:\Dev\Godot\佛祖放置\Script\.VSCodeCounter\2023-04-29_22-58-04\diff.md         | Markdown |         12 |          0 |          7 |         19 |
+| e:\Dev\Godot\佛祖放置\Script\.VSCodeCounter\2023-04-29_22-58-04\results.csv     | CSV      |         12 |          0 |          0 |         12 |
+| e:\Dev\Godot\佛祖放置\Script\.VSCodeCounter\2023-04-29_22-58-04\results.json    | JSON     |          1 |          0 |          0 |          1 |
+| e:\Dev\Godot\佛祖放置\Script\.VSCodeCounter\2023-04-29_22-58-04\results.md      | Markdown |         17 |          0 |          7 |         24 |
+| e:\Dev\Godot\佛祖放置\Script\Game\OnClick.gd                                    | GDScript |          1 |          0 |          1 |          2 |
+| e:\Dev\Godot\佛祖放置\Script\Game\main.gd                                       | GDScript |         84 |          0 |         19 |        103 |
+| e:\Dev\Godot\佛祖放置\Script\Global\Bignumber.gd                                | GDScript |        398 |         34 |        100 |        532 |
+| e:\Dev\Godot\佛祖放置\Script\Global\Global.gd                                   | GDScript |         82 |         22 |         25 |        129 |
+| e:\Dev\Godot\佛祖放置\Script\Global\ItemClass.gd                                | GDScript |         49 |          0 |         12 |         61 |
+| e:\Dev\Godot\佛祖放置\Script\Global\SaveAndLoad.gd                              | GDScript |         18 |          1 |          7 |         26 |
+| e:\Dev\Godot\佛祖放置\Script\Global\SkillClass.gd                               | GDScript |         26 |          1 |          6 |         33 |
+| e:\Dev\Godot\佛祖放置\Script\Global\Static.gd                                   | GDScript |          1 |          0 |          3 |          4 |
+| e:\Dev\Godot\佛祖放置\Script\Store.gd                                           | GDScript |          6 |          0 |          4 |         10 |
+| e:\Dev\Godot\佛祖放置\Script\UI\Chart.gd                                        | GDScript |         11 |          0 |          5 |         16 |
+| e:\Dev\Godot\佛祖放置\Script\UI\Popup.gd                                        | GDScript |         13 |          0 |          5 |         18 |
+| e:\Dev\Godot\佛祖放置\Script\UI\Skill.gd                                        | GDScript |         23 |          0 |          6 |         29 |
+| e:\Dev\Godot\佛祖放置\Script\UI\TipText.gd                                      | GDScript |          5 |          0 |          2 |          7 |
+| e:\Dev\Godot\佛祖放置\Script\UI\item.gd                                         | GDScript |         29 |          0 |         10 |         39 |
+| e:\Dev\Godot\佛祖放置\Script\UI\ui.gd                                           | GDScript |         33 |          0 |         15 |         48 |
+| e:\Dev\Godot\佛祖放置\Script\test.gd                                            | GDScript |         35 |          0 |          9 |         44 |
+| Total                                                                       |          |        886 |         58 |        255 |      1,199 |
++-----------------------------------------------------------------------------+----------+------------+------------+------------+------------+

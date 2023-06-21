@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://b68trbxwmygkp"]
+
+[ext_resource type="Theme" uid="uid://c7hfbhu8whrfq" path="res://Asset/Theme/scroll.tres" id="1_wqf2v"]
+[ext_resource type="Texture2D" uid="uid://ddg363pru3nxo" path="res://Asset/UI/ItemPanel.svg" id="2_wtvy0"]
+[ext_resource type="Texture2D" uid="uid://btq5xwwtvhr7k" path="res://Asset/img/Character/Dancer.png" id="3_80rlb"]
+[ext_resource type="FontFile" uid="uid://rery3p2p3u0s" path="res://Asset/Font/DreamSource/DreamHanSans-W23.ttc" id="4_vxivk"]
+[ext_resource type="FontFile" uid="uid://bjou57imk88ov" path="res://Asset/Font/DreamSource/DreamHanSans-W18.ttc" id="5_2fuf8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_36ai0"]
+font = ExtResource("5_2fuf8")
+font_size = 22
+font_color = Color(0.807843, 0.717647, 0.54902, 1)
+
+[node name="Unknow" type="NinePatchRect"]
+custom_minimum_size = Vector2(1000, 200)
+offset_right = 900.0
+offset_bottom = 200.0
+theme = ExtResource("1_wqf2v")
+texture = ExtResource("2_wtvy0")
+patch_margin_left = 21
+patch_margin_top = 21
+patch_margin_right = 21
+patch_margin_bottom = 21
+
+[node name="HBox" type="HBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBox" type="HBoxContainer" parent="HBox"]
+clip_contents = true
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = -18
+
+[node name="Container" type="Control" parent="HBox/HBox"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="HBox/HBox/Container"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+offset_right = 196.0
+offset_bottom = 196.0
+scale = Vector2(0.192, 0.192)
+texture = ExtResource("3_80rlb")
+
+[node name="Vbox" type="VBoxContainer" parent="HBox/HBox"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+mouse_filter = 2
+alignment = 1
+
+[node name="Name" type="Label" parent="HBox/HBox/Vbox"]
+clip_contents = true
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_fonts/font = ExtResource("4_vxivk")
+theme_override_font_sizes/font_size = 49
+text = "???"
+
+[node name="Desc" type="Label" parent="HBox/HBox/Vbox"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+text = "一切的等待伟大的炼金术士探索。"
+label_settings = SubResource("LabelSettings_36ai0")
+autowrap_mode = 2
+clip_text = true
+max_lines_visible = 2

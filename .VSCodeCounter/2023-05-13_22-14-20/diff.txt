@@ -1,0 +1,260 @@
+Date : 2023-05-13 22:14:20
+Directory : e:\Dev\Godot\佛祖放置\Script
+Total : 177 files,  -6911 codes, -3418 comments, -2688 blanks, all -13017 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| CSV        |          2 |         14 |          0 |          0 |         14 |
+| JSON       |          1 |          1 |          0 |          0 |          1 |
+| Properties |          1 |         -6 |          0 |         -2 |         -8 |
+| Markdown   |          5 |         -8 |          0 |         15 |          7 |
+| GDResource |         15 |       -386 |          0 |        -90 |       -476 |
+| GDScript   |        153 |     -6,526 |     -3,418 |     -2,611 |    -12,555 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                           | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                              |        177 |     -6,911 |     -3,418 |     -2,688 |    -13,017 |
+| . (Files)                                                                                                      |          2 |         41 |          0 |         13 |         54 |
+| ..                                                                                                             |        154 |     -7,797 |     -3,476 |     -2,943 |    -14,216 |
+| ..\addons                                                                                                      |        154 |     -7,797 |     -3,476 |     -2,943 |    -14,216 |
+| ..\addons\apprentice                                                                                           |        154 |     -7,797 |     -3,476 |     -2,943 |    -14,216 |
+| ..\addons\apprentice (Files)                                                                                   |          2 |        -57 |        -14 |        -20 |        -91 |
+| ..\addons\apprentice\config                                                                                    |          3 |        -21 |        -29 |        -18 |        -68 |
+| ..\addons\apprentice\node                                                                                      |         94 |     -3,801 |     -1,629 |     -1,538 |     -6,968 |
+| ..\addons\apprentice\node (Files)                                                                              |         20 |     -1,240 |       -573 |       -469 |     -2,282 |
+| ..\addons\apprentice\node\behavior_tree                                                                        |         46 |     -1,296 |       -362 |       -521 |     -2,179 |
+| ..\addons\apprentice\node\behavior_tree\config                                                                 |         16 |       -599 |       -179 |       -254 |     -1,032 |
+| ..\addons\apprentice\node\behavior_tree\config (Files)                                                         |          3 |       -191 |        -55 |        -55 |       -301 |
+| ..\addons\apprentice\node\behavior_tree\config\analysis                                                        |          7 |       -263 |        -95 |       -128 |       -486 |
+| ..\addons\apprentice\node\behavior_tree\config\analysis (Files)                                                |          3 |       -121 |        -53 |        -68 |       -242 |
+| ..\addons\apprentice\node\behavior_tree\config\analysis\data                                                   |          4 |       -142 |        -42 |        -60 |       -244 |
+| ..\addons\apprentice\node\behavior_tree\config\leaf                                                            |          3 |        -17 |        -18 |        -19 |        -54 |
+| ..\addons\apprentice\node\behavior_tree\config\test                                                            |          3 |       -128 |        -11 |        -52 |       -191 |
+| ..\addons\apprentice\node\behavior_tree\icon                                                                   |         11 |       -319 |          0 |        -66 |       -385 |
+| ..\addons\apprentice\node\behavior_tree\prefabs                                                                |          2 |        -48 |        -23 |        -25 |        -96 |
+| ..\addons\apprentice\node\behavior_tree\src                                                                    |         17 |       -330 |       -160 |       -176 |       -666 |
+| ..\addons\apprentice\node\behavior_tree\src (Files)                                                            |          2 |        -81 |        -33 |        -41 |       -155 |
+| ..\addons\apprentice\node\behavior_tree\src\composite                                                          |          6 |       -110 |        -52 |        -54 |       -216 |
+| ..\addons\apprentice\node\behavior_tree\src\decorator                                                          |          6 |       -118 |        -54 |        -57 |       -229 |
+| ..\addons\apprentice\node\behavior_tree\src\leaf                                                               |          3 |        -21 |        -21 |        -24 |        -66 |
+| ..\addons\apprentice\node\camear2d                                                                             |          5 |        -94 |        -56 |        -50 |       -200 |
+| ..\addons\apprentice\node\control                                                                              |          3 |        -57 |        -21 |        -25 |       -103 |
+| ..\addons\apprentice\node\control_effect                                                                       |          6 |       -221 |        -84 |        -97 |       -402 |
+| ..\addons\apprentice\node\damage_body_area                                                                     |          2 |        -64 |        -52 |        -32 |       -148 |
+| ..\addons\apprentice\node\data_management                                                                      |          2 |       -124 |        -73 |        -55 |       -252 |
+| ..\addons\apprentice\node\data_management (Files)                                                              |          1 |        -76 |        -54 |        -37 |       -167 |
+| ..\addons\apprentice\node\data_management\buff                                                                 |          1 |        -48 |        -19 |        -18 |        -85 |
+| ..\addons\apprentice\node\lighting                                                                             |          2 |        -46 |        -15 |        -18 |        -79 |
+| ..\addons\apprentice\node\move_controller                                                                      |          2 |       -193 |       -110 |        -68 |       -371 |
+| ..\addons\apprentice\node\move_to                                                                              |          4 |       -154 |        -71 |        -78 |       -303 |
+| ..\addons\apprentice\node\timeline                                                                             |          2 |       -312 |       -212 |       -125 |       -649 |
+| ..\addons\apprentice\refcount                                                                                  |          8 |       -365 |       -130 |       -148 |       -643 |
+| ..\addons\apprentice\refcount (Files)                                                                          |          6 |       -318 |       -122 |       -132 |       -572 |
+| ..\addons\apprentice\refcount\message_queue_test                                                               |          2 |        -47 |         -8 |        -16 |        -71 |
+| ..\addons\apprentice\resource                                                                                  |          6 |        -96 |        -53 |        -48 |       -197 |
+| ..\addons\apprentice\resource (Files)                                                                          |          2 |        -69 |        -22 |        -26 |       -117 |
+| ..\addons\apprentice\resource\value                                                                            |          4 |        -27 |        -31 |        -22 |        -80 |
+| ..\addons\apprentice\util                                                                                      |         41 |     -3,457 |     -1,621 |     -1,171 |     -6,249 |
+| ..\addons\apprentice\util (Files)                                                                              |         28 |     -2,495 |     -1,081 |       -842 |     -4,418 |
+| ..\addons\apprentice\util\file_util                                                                            |          2 |       -163 |        -68 |        -51 |       -282 |
+| ..\addons\apprentice\util\func_util                                                                            |          2 |       -468 |       -236 |       -120 |       -824 |
+| ..\addons\apprentice\util\priority_callable_connector                                                          |          8 |       -294 |       -214 |       -137 |       -645 |
+| ..\addons\apprentice\util\priority_callable_connector (Files)                                                  |          4 |       -127 |        -89 |        -64 |       -280 |
+| ..\addons\apprentice\util\priority_callable_connector\deprecated                                               |          2 |       -156 |       -115 |        -60 |       -331 |
+| ..\addons\apprentice\util\priority_callable_connector\test                                                     |          2 |        -11 |        -10 |        -13 |        -34 |
+| ..\addons\apprentice\util\script                                                                               |          1 |        -37 |        -22 |        -21 |        -80 |
+| .VSCodeCounter                                                                                                 |          7 |         72 |          0 |         26 |         98 |
+| .VSCodeCounter\2023-04-29_22-58-04                                                                             |          7 |         72 |          0 |         26 |         98 |
+| Game                                                                                                           |          2 |         85 |          0 |         20 |        105 |
+| Global                                                                                                         |          6 |        574 |         58 |        153 |        785 |
+| UI                                                                                                             |          6 |        114 |          0 |         43 |        157 |
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                       | language   | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| e:\Dev\Godot\佛祖放置\Script\.VSCodeCounter\2023-04-29_22-58-04\details.md                                         | Markdown   |         19 |          0 |          6 |         25 |
+| e:\Dev\Godot\佛祖放置\Script\.VSCodeCounter\2023-04-29_22-58-04\diff-details.md                                    | Markdown   |          9 |          0 |          6 |         15 |
+| e:\Dev\Godot\佛祖放置\Script\.VSCodeCounter\2023-04-29_22-58-04\diff.csv                                           | CSV        |          2 |          0 |          0 |          2 |
+| e:\Dev\Godot\佛祖放置\Script\.VSCodeCounter\2023-04-29_22-58-04\diff.md                                            | Markdown   |         12 |          0 |          7 |         19 |
+| e:\Dev\Godot\佛祖放置\Script\.VSCodeCounter\2023-04-29_22-58-04\results.csv                                        | CSV        |         12 |          0 |          0 |         12 |
+| e:\Dev\Godot\佛祖放置\Script\.VSCodeCounter\2023-04-29_22-58-04\results.json                                       | JSON       |          1 |          0 |          0 |          1 |
+| e:\Dev\Godot\佛祖放置\Script\.VSCodeCounter\2023-04-29_22-58-04\results.md                                         | Markdown   |         17 |          0 |          7 |         24 |
+| e:\Dev\Godot\佛祖放置\Script\Game\OnClick.gd                                                                       | GDScript   |          1 |          0 |          1 |          2 |
+| e:\Dev\Godot\佛祖放置\Script\Game\main.gd                                                                          | GDScript   |         84 |          0 |         19 |        103 |
+| e:\Dev\Godot\佛祖放置\Script\Global\Bignumber.gd                                                                   | GDScript   |        398 |         34 |        100 |        532 |
+| e:\Dev\Godot\佛祖放置\Script\Global\Global.gd                                                                      | GDScript   |         82 |         22 |         25 |        129 |
+| e:\Dev\Godot\佛祖放置\Script\Global\ItemClass.gd                                                                   | GDScript   |         49 |          0 |         12 |         61 |
+| e:\Dev\Godot\佛祖放置\Script\Global\SaveAndLoad.gd                                                                 | GDScript   |         18 |          1 |          7 |         26 |
+| e:\Dev\Godot\佛祖放置\Script\Global\SkillClass.gd                                                                  | GDScript   |         26 |          1 |          6 |         33 |
+| e:\Dev\Godot\佛祖放置\Script\Global\Static.gd                                                                      | GDScript   |          1 |          0 |          3 |          4 |
+| e:\Dev\Godot\佛祖放置\Script\Store.gd                                                                              | GDScript   |          6 |          0 |          4 |         10 |
+| e:\Dev\Godot\佛祖放置\Script\UI\Chart.gd                                                                           | GDScript   |         11 |          0 |          5 |         16 |
+| e:\Dev\Godot\佛祖放置\Script\UI\Popup.gd                                                                           | GDScript   |         13 |          0 |          5 |         18 |
+| e:\Dev\Godot\佛祖放置\Script\UI\Skill.gd                                                                           | GDScript   |         23 |          0 |          6 |         29 |
+| e:\Dev\Godot\佛祖放置\Script\UI\TipText.gd                                                                         | GDScript   |          5 |          0 |          2 |          7 |
+| e:\Dev\Godot\佛祖放置\Script\UI\item.gd                                                                            | GDScript   |         29 |          0 |         10 |         39 |
+| e:\Dev\Godot\佛祖放置\Script\UI\ui.gd                                                                              | GDScript   |         33 |          0 |         15 |         48 |
+| e:\Dev\Godot\佛祖放置\Script\test.gd                                                                               | GDScript   |         35 |          0 |          9 |         44 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\config\auto_load_config.gd                                                 | GDScript   |        -13 |         -9 |         -6 |        -28 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\config\config.gd                                                           | GDScript   |         -5 |         -8 |         -4 |        -17 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\config\example_config.gd                                                   | GDScript   |         -3 |        -12 |         -8 |        -23 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\animation_canvas.gd                                                   | GDScript   |       -156 |        -30 |        -69 |       -255 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\README.md                                        | Markdown   |        -65 |          0 |        -11 |        -76 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\_document.gd                                     | GDScript   |        -83 |        -39 |        -30 |       -152 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\analysis\analysis.gd                             | GDScript   |        -56 |        -23 |        -30 |       -109 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\analysis\data\data_class.gd                      | GDScript   |         -4 |         -5 |         -4 |        -13 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\analysis\data\objects.gd                         | GDScript   |        -68 |        -16 |        -23 |       -107 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\analysis\data\struct.gd                          | GDScript   |        -30 |        -13 |        -14 |        -57 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\analysis\data\token.gd                           | GDScript   |        -40 |         -8 |        -19 |        -67 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\analysis\generate_node.gd                        | GDScript   |        -25 |        -14 |        -19 |        -58 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\analysis\method_map.gd                           | GDScript   |        -40 |        -16 |        -19 |        -75 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\bt_node_util.gd                                  | GDScript   |        -43 |        -16 |        -14 |        -73 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\leaf\action.gd                                   | GDScript   |         -6 |         -6 |         -6 |        -18 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\leaf\base_do_node.gd                             | GDScript   |         -5 |         -6 |         -7 |        -18 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\leaf\condition.gd                                | GDScript   |         -6 |         -6 |         -6 |        -18 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\test\editor_script_00.gd                         | GDScript   |        -15 |         -3 |        -13 |        -31 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\test\scene_test.gd                               | GDScript   |        -84 |         -8 |        -27 |       -119 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\config\test\scene_test.tscn                             | GDResource |        -29 |          0 |        -12 |        -41 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\icon\FAction.png.import                                 | GDResource |        -29 |          0 |         -6 |        -35 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\icon\FAlways.png.import                                 | GDResource |        -29 |          0 |         -6 |        -35 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\icon\FBehaviorTreeRoot.png.import                       | GDResource |        -29 |          0 |         -6 |        -35 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\icon\FCondition.png.import                              | GDResource |        -29 |          0 |         -6 |        -35 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\icon\FDecorator.png.import                              | GDResource |        -29 |          0 |         -6 |        -35 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\icon\FNodeBase.png.import                               | GDResource |        -29 |          0 |         -6 |        -35 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\icon\FParallel.png.import                               | GDResource |        -29 |          0 |         -6 |        -35 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\icon\FSelector.png.import                               | GDResource |        -29 |          0 |         -6 |        -35 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\icon\FSequence.png.import                               | GDResource |        -29 |          0 |         -6 |        -35 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\icon\FTimer.png.import                                  | GDResource |        -29 |          0 |         -6 |        -35 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\icon\FUntil.png.import                                  | GDResource |        -29 |          0 |         -6 |        -35 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\prefabs\bt_distance_condition.gd                        | GDScript   |        -35 |        -15 |        -15 |        -65 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\prefabs\bt_move.gd                                      | GDScript   |        -13 |         -8 |        -10 |        -31 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\bt_base.gd                                          | GDScript   |        -11 |         -9 |         -9 |        -29 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\bt_root.gd                                          | GDScript   |        -70 |        -24 |        -32 |       -126 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\composite\_composite.gd                             | GDScript   |         -7 |         -6 |         -6 |        -19 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\composite\_parallel.gd                              | GDScript   |        -21 |        -10 |        -10 |        -41 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\composite\_selector.gd                              | GDScript   |        -17 |         -9 |         -8 |        -34 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\composite\_sequence.gd                              | GDScript   |        -17 |         -9 |         -9 |        -35 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\composite\random_selector.gd                        | GDScript   |        -23 |         -9 |        -10 |        -42 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\composite\random_sequence.gd                        | GDScript   |        -25 |         -9 |        -11 |        -45 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\decorator\_decorator.gd                             | GDScript   |        -15 |         -6 |         -5 |        -26 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\decorator\always.gd                                 | GDScript   |         -9 |         -8 |         -6 |        -23 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\decorator\counter.gd                                | GDScript   |        -20 |         -7 |        -11 |        -38 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\decorator\pendulum.gd                               | GDScript   |        -50 |        -16 |        -21 |        -87 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\decorator\reverse.gd                                | GDScript   |        -12 |         -9 |         -6 |        -27 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\decorator\until.gd                                  | GDScript   |        -12 |         -8 |         -8 |        -28 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\leaf\action.gd                                      | GDScript   |        -11 |         -8 |        -11 |        -30 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\leaf\condition.gd                                   | GDScript   |         -7 |         -8 |         -8 |        -23 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\behavior_tree\src\leaf\leaf.gd                                        | GDScript   |         -3 |         -5 |         -5 |        -13 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\camear2d\base_camera_decorator.gd                                     | GDScript   |         -4 |         -7 |         -6 |        -17 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\camear2d\camera_limit.gd                                              | GDScript   |        -19 |        -14 |        -11 |        -44 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\camear2d\camera_shake.gd                                              | GDScript   |        -19 |        -13 |        -12 |        -44 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\camear2d\camera_with_tilemap.gd                                       | GDScript   |        -25 |        -10 |        -11 |        -46 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\camear2d\camera_zoom.gd                                               | GDScript   |        -27 |        -12 |        -10 |        -49 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\cast_target.gd                                                        | GDScript   |        -10 |         -6 |         -4 |        -20 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\collision_auto_creator.gd                                             | GDScript   |        -62 |        -12 |        -19 |        -93 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\control\control_click_border.gd                                       | GDScript   |        -19 |         -6 |        -11 |        -36 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\control\control_hover_border.gd                                       | GDScript   |        -14 |         -6 |         -8 |        -28 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\control\control_hover_color.gd                                        | GDScript   |        -24 |         -9 |         -6 |        -39 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\control_effect\control_effect.gd                                      | GDScript   |        -95 |        -25 |        -39 |       -159 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\control_effect\fade.gd                                                | GDScript   |        -13 |         -9 |         -9 |        -31 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\control_effect\float.gd                                               | GDScript   |        -35 |        -13 |        -16 |        -64 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\control_effect\offset.gd                                              | GDScript   |        -23 |        -13 |        -10 |        -46 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\control_effect\scale.gd                                               | GDScript   |        -19 |        -11 |        -10 |        -40 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\control_effect\shake.gd                                               | GDScript   |        -36 |        -13 |        -13 |        -62 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\damage_body_area\body_area.gd                                         | GDScript   |        -27 |        -23 |        -15 |        -65 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\damage_body_area\damage_area.gd                                       | GDScript   |        -37 |        -29 |        -17 |        -83 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\data_management\buff\buff.gd                                          | GDScript   |        -48 |        -19 |        -18 |        -85 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\data_management\data_management.gd                                    | GDScript   |        -76 |        -54 |        -37 |       -167 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\drag_move_control.gd                                                  | GDScript   |        -35 |        -19 |        -13 |        -67 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\float_text.gd                                                         | GDScript   |        -30 |         -8 |         -5 |        -43 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\gravity.gd                                                            | GDScript   |        -20 |         -9 |        -14 |        -43 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\lighting\curve.tres                                                   | GDResource |         -4 |          0 |         -2 |         -6 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\lighting\lighting.gd                                                  | GDScript   |        -42 |        -15 |        -16 |        -73 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\move_controller\move_controller.gd                                    | GDScript   |        -59 |        -46 |        -28 |       -133 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\move_controller\platform_controller.gd                                | GDScript   |       -134 |        -64 |        -40 |       -238 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\move_to\move_forward.gd                                               | GDScript   |        -23 |        -19 |        -18 |        -60 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\move_to\move_to.gd                                                    | GDScript   |        -67 |        -30 |        -26 |       -123 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\move_to\move_to_follow.gd                                             | GDScript   |        -38 |         -6 |        -18 |        -62 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\move_to\move_to_path.gd                                               | GDScript   |        -26 |        -16 |        -16 |        -58 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\node_db.gd                                                            | GDScript   |        -96 |        -42 |        -32 |       -170 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\panel_border.gd                                                       | GDScript   |        -72 |         -6 |        -14 |        -92 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\path_texture.gd                                                       | GDScript   |        -41 |        -21 |        -13 |        -75 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\projectile.gd                                                         | GDScript   |        -93 |        -26 |        -27 |       -146 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\projectile_module.gd                                                  | GDScript   |        -58 |        -49 |        -20 |       -127 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\property_management.gd                                                | GDScript   |        -73 |        -46 |        -26 |       -145 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\sprint.gd                                                             | GDScript   |        -17 |         -6 |        -15 |        -38 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\stage_progress.gd                                                     | GDScript   |        -39 |        -24 |        -15 |        -78 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\state_node.gd                                                         | GDScript   |       -210 |       -149 |        -83 |       -442 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\surround.gd                                                           | GDScript   |        -20 |         -6 |        -13 |        -39 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\sway.gd                                                               | GDScript   |        -31 |        -25 |        -16 |        -72 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\texture_color.gd                                                      | GDScript   |        -50 |        -14 |        -18 |        -82 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\timeline\skill_actuator.gd                                            | GDScript   |       -143 |       -109 |        -58 |       -310 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\timeline\time_line.gd                                                 | GDScript   |       -169 |       -103 |        -67 |       -339 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\timer_plus.gd                                                         | GDScript   |        -62 |        -36 |        -21 |       -119 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\node\turn_controller.gd                                                    | GDScript   |        -65 |        -39 |        -32 |       -136 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\plugin.cfg                                                                 | Properties |         -6 |          0 |         -2 |         -8 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\plugin.gd                                                                  | GDScript   |        -51 |        -14 |        -18 |        -83 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\refcount\angle_ratio_cache.gd                                              | GDScript   |        -15 |        -10 |        -10 |        -35 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\refcount\counter.gd                                                        | GDScript   |        -52 |        -11 |        -28 |        -91 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\refcount\gquery.gd                                                         | GDScript   |        -57 |        -15 |        -18 |        -90 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\refcount\message_queue.gd                                                  | GDScript   |       -156 |        -63 |        -49 |       -268 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\refcount\message_queue_test\scene.gd                                       | GDScript   |        -17 |         -8 |         -9 |        -34 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\refcount\message_queue_test\scene.tscn                                     | GDResource |        -30 |          0 |         -7 |        -37 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\refcount\precondition.gd                                                   | GDScript   |        -12 |        -11 |        -10 |        -33 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\refcount\random_minimum_probability.gd                                     | GDScript   |        -26 |        -12 |        -17 |        -55 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\resource\filter_invalid_script_info_cache.gd                               | GDScript   |        -20 |        -11 |         -8 |        -39 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\resource\resource_sound_config.gd                                          | GDScript   |        -49 |        -11 |        -18 |        -78 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\resource\value\min_max_value.gd                                            | GDScript   |         -6 |         -7 |         -5 |        -18 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\resource\value\number_value.gd                                             | GDScript   |         -6 |         -8 |         -7 |        -21 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\resource\value\target_property_value.gd                                    | GDScript   |        -11 |         -8 |         -5 |        -24 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\resource\value\value.gd                                                    | GDScript   |         -4 |         -8 |         -5 |        -17 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\GenerateMapUtil.gd                                                    | GDScript   |        -87 |        -42 |        -27 |       -156 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\area_util.gd                                                          | GDScript   |        -59 |        -31 |        -11 |       -101 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\camera_util.gd                                                        | GDScript   |        -16 |        -11 |         -9 |        -36 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\canvas_util.gd                                                        | GDScript   |        -38 |        -21 |        -14 |        -73 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\collision_util.gd                                                     | GDScript   |        -36 |        -25 |        -11 |        -72 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\control_util.gd                                                       | GDScript   |        -30 |        -16 |        -10 |        -56 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\data_util.gd                                                          | GDScript   |       -170 |        -75 |        -62 |       -307 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\editor_util.gd                                                        | GDScript   |       -267 |        -99 |        -91 |       -457 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\effect_util.gd                                                        | GDScript   |        -60 |        -36 |        -16 |       -112 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\error_log.gd                                                          | GDScript   |        -16 |         -8 |         -8 |        -32 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\event.gd                                                              | GDScript   |       -101 |        -55 |        -45 |       -201 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\file_util\file_util.gd                                                | GDScript   |       -159 |        -61 |        -48 |       -268 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\file_util\res.gd                                                      | GDScript   |         -4 |         -7 |         -3 |        -14 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\func_util\func_apply_force_state.gd                                   | GDScript   |        -14 |        -11 |        -12 |        -37 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\func_util\func_util.gd                                                | GDScript   |       -454 |       -225 |       -108 |       -787 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\generate_room_util.gd                                                 | GDScript   |        -91 |        -43 |        -29 |       -163 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\group.gd                                                              | GDScript   |        -33 |        -29 |        -19 |        -81 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\input_util.gd                                                         | GDScript   |        -28 |        -21 |        -12 |        -61 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\json_util.gd                                                          | GDScript   |        -46 |        -29 |        -21 |        -96 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\layer_util.gd                                                         | GDScript   |        -13 |        -14 |        -10 |        -37 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\log.gd                                                                | GDScript   |        -72 |        -21 |        -23 |       -116 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\math_util.gd                                                          | GDScript   |       -128 |        -40 |        -61 |       -229 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\menu_util.gd                                                          | GDScript   |        -39 |        -24 |        -19 |        -82 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\node_util.gd                                                          | GDScript   |       -180 |        -84 |        -56 |       -320 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\object_util.gd                                                        | GDScript   |        -50 |        -37 |        -20 |       -107 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\priority_callable_connector\aspect.gd                                 | GDScript   |        -22 |        -19 |        -16 |        -57 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\priority_callable_connector\deprecated\priority_callable_connector.gd | GDScript   |        -67 |        -62 |        -26 |       -155 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\priority_callable_connector\deprecated\priority_group.gd              | GDScript   |        -89 |        -53 |        -34 |       -176 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\priority_callable_connector\priority_connector.gd                     | GDScript   |        -30 |        -19 |        -15 |        -64 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\priority_callable_connector\priority_queue.gd                         | GDScript   |        -33 |        -19 |        -14 |        -66 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\priority_callable_connector\priority_signal_group.gd                  | GDScript   |        -42 |        -32 |        -19 |        -93 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\priority_callable_connector\test\priority_test.gd                     | GDScript   |         -7 |        -10 |        -10 |        -27 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\priority_callable_connector\test\priority_test.tscn                   | GDResource |         -4 |          0 |         -3 |         -7 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\property_wrapper.gd                                                   | GDScript   |        -81 |        -22 |        -45 |       -148 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\script\parabola.gd                                                    | GDScript   |        -37 |        -22 |        -21 |        -80 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\script_util.gd                                                        | GDScript   |       -278 |        -70 |        -54 |       -402 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\signal_util.gd                                                        | GDScript   |       -144 |        -73 |        -40 |       -257 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\texture_util.gd                                                       | GDScript   |       -140 |        -47 |        -42 |       -229 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\tilemap_util.gd                                                       | GDScript   |       -171 |        -57 |        -42 |       -270 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\translation_util.gd                                                   | GDScript   |        -52 |        -28 |        -18 |        -98 |
+| e:\Dev\Godot\佛祖放置\addons\apprentice\util\uuid.gd                                                               | GDScript   |        -69 |        -23 |        -27 |       -119 |
+| Total                                                                                                          |            |     -6,911 |     -3,418 |     -2,688 |    -13,017 |
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

@@ -1,0 +1,121 @@
+[gd_scene load_steps=6 format=3 uid="uid://chpa1v571becr"]
+
+[ext_resource type="Texture2D" uid="uid://bwquosnkwdqtr" path="res://Asset/UI/Panel.png" id="1_qoef1"]
+[ext_resource type="FontFile" uid="uid://rery3p2p3u0s" path="res://Asset/Font/DreamSource/DreamHanSans-W23.ttc" id="2_lvecw"]
+[ext_resource type="Texture2D" uid="uid://b4m0t1e2136p1" path="res://Asset/img/Character/Zeus.jpg" id="3_xk2h6"]
+[ext_resource type="FontFile" uid="uid://bjou57imk88ov" path="res://Asset/Font/DreamSource/DreamHanSans-W18.ttc" id="4_1tjt0"]
+[ext_resource type="FontFile" uid="uid://cddpsm6ki37cr" path="res://Asset/Font/DreamSource/DreamHanSans-W14.ttc" id="5_xt7rp"]
+
+[node name="EventPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -465.0
+offset_top = -572.0
+offset_right = 465.0
+offset_bottom = 572.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Popup" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qoef1")
+patch_margin_left = 84
+patch_margin_top = 85
+patch_margin_right = 84
+patch_margin_bottom = 87
+
+[node name="VBox" type="VBoxContainer" parent="Popup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.114
+anchor_top = 0.065
+anchor_right = 0.887
+anchor_bottom = 0.935
+offset_left = 0.285995
+offset_top = 0.349998
+offset_right = -0.187012
+offset_bottom = -0.350037
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="VBox" type="VBoxContainer" parent="Popup/VBox"]
+custom_minimum_size = Vector2(0, 700)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Popup/VBox/VBox"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Popup/VBox/VBox/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_fonts/font = ExtResource("2_lvecw")
+theme_override_font_sizes/font_size = 56
+text = "黑客入侵"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Popup/VBox/VBox/VBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("3_xk2h6")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="VBox2" type="VBoxContainer" parent="Popup/VBox/VBox"]
+layout_mode = 2
+
+[node name="Desc" type="Label" parent="Popup/VBox/VBox/VBox2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85098, 0.835294, 0.788235, 1)
+theme_override_fonts/font = ExtResource("4_1tjt0")
+theme_override_font_sizes/font_size = 43
+text = "黑客入侵了你的电脑，要偷走你的比特币。"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Effect" type="RichTextLabel" parent="Popup/VBox/VBox/VBox2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("5_xt7rp")
+theme_override_fonts/bold_font = ExtResource("2_lvecw")
+theme_override_fonts/italics_font = ExtResource("4_1tjt0")
+theme_override_font_sizes/italics_font_size = 25
+bbcode_enabled = true
+text = "[center][i]每秒金币数量 +3%[/i][/center]"
+fit_content = true
+threaded = true
+
+[node name="Btn" type="VBoxContainer" parent="Popup/VBox"]
+layout_mode = 2
+
+[node name="Set1" type="Button" parent="Popup/VBox/Btn"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "关闭"
+
+[node name="Set2" type="Button" parent="Popup/VBox/Btn"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "关闭"
+
+[node name="Set3" type="Button" parent="Popup/VBox/Btn"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "关闭"

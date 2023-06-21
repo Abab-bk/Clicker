@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvwqyb66un5bg"]
+
+[ext_resource type="Script" path="res://Script/UI/ui.gd" id="1_bvumk"]
+[ext_resource type="Texture2D" uid="uid://ck8jp7knyfh2h" path="res://Asset/UI/BlackGround.png" id="2_dsnj0"]
+[ext_resource type="PackedScene" uid="uid://djuoyeu1igube" path="res://Scence/UI/title.tscn" id="3_liddl"]
+
+[node name="UHD" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_bvumk")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Black" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -676.5
+offset_right = 676.5
+offset_bottom = 268.0
+grow_horizontal = 2
+texture = ExtResource("2_dsnj0")
+
+[node name="VBox" type="VBoxContainer" parent="UI/Black"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 90.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" parent="UI/Black/VBox" instance=ExtResource("3_liddl")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Bonus" type="Label" parent="UI/Black/VBox"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_font_sizes/font_size = 37
+text = "+8 / s"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.545098)

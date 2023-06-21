@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbnity8ani5lg"]
+
+[ext_resource type="Script" path="res://Script/Global/timer.gd" id="1_47fhq"]
+
+[node name="Timer" type="Timer"]
+wait_time = 5.0
+script = ExtResource("1_47fhq")

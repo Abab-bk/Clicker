@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://jq2c50clbckq"]
+
+[ext_resource type="Texture2D" uid="uid://bwquosnkwdqtr" path="res://Asset/UI/Panel.png" id="1_3wgdl"]
+[ext_resource type="Theme" uid="uid://c7hfbhu8whrfq" path="res://Asset/Theme/scroll.tres" id="1_qru5n"]
+[ext_resource type="Script" path="res://Script/UI/GiftPop.gd" id="2_1n503"]
+[ext_resource type="FontFile" uid="uid://rery3p2p3u0s" path="res://Asset/Font/DreamSource/DreamHanSans-W23.ttc" id="2_63473"]
+[ext_resource type="Texture2D" uid="uid://ddg363pru3nxo" path="res://Asset/UI/ItemPanel.svg" id="5_76pml"]
+[ext_resource type="Texture2D" uid="uid://c1076r8wpxswr" path="res://Asset/UI/button/ClubButtonPress.png" id="6_minw5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qid70"]
+texture = ExtResource("5_76pml")
+texture_margin_left = 24.0
+texture_margin_top = 21.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qb1ps"]
+texture = ExtResource("6_minw5")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="GiftPopup" type="Control"]
+custom_minimum_size = Vector2(930, 655)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -465.0
+offset_top = -327.5
+offset_right = 465.0
+offset_bottom = 327.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qru5n")
+script = ExtResource("2_1n503")
+
+[node name="Popup" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3wgdl")
+patch_margin_left = 84
+patch_margin_top = 85
+patch_margin_right = 84
+patch_margin_bottom = 87
+
+[node name="VBox" type="VBoxContainer" parent="Popup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.114
+anchor_top = 0.065
+anchor_right = 0.887
+anchor_bottom = 0.935
+offset_left = 0.285995
+offset_top = 0.349998
+offset_right = -0.187012
+offset_bottom = -0.350037
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 243
+
+[node name="VBox" type="VBoxContainer" parent="Popup/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Name" type="Label" parent="Popup/VBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_fonts/font = ExtResource("2_63473")
+theme_override_font_sizes/font_size = 56
+text = "兑换码"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Popup/VBox/VBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_colors/font_placeholder_color = Color(0.113725, 0.105882, 0.113725, 0.52549)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_qid70")
+theme_override_styles/focus = SubResource("StyleBoxTexture_qb1ps")
+placeholder_text = "请输入兑换码"
+caret_blink = true
+
+[node name="Yes" type="Button" parent="Popup/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "兑换"

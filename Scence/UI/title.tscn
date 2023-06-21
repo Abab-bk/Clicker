@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3 uid="uid://djuoyeu1igube"]
+
+[ext_resource type="Texture2D" uid="uid://c04ssvd657qo5" path="res://Asset/UI/TitleBar.png" id="1_bpoqv"]
+[ext_resource type="Texture2D" uid="uid://dwmyuspya3fhm" path="res://Asset/Icon/coins.png" id="2_ifk7m"]
+[ext_resource type="Script" path="res://Script/UI/title.gd" id="2_k5ice"]
+
+[sub_resource type="Animation" id="Animation_7onyv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/HBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/HBox/Coins:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.886275, 0.698039, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ax2fc"]
+resource_name = "no"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/HBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(16, 0), Vector2(-16, 0), Vector2(16, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/HBox/Coins:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.886275, 0.698039, 1), Color(0.556863, 0.14902, 0.184314, 1), Color(0.556863, 0.14902, 0.184314, 1), Color(1, 0.886275, 0.698039, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0d42x"]
+resource_name = "reduce"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xnmqk"]
+_data = {
+"RESET": SubResource("Animation_7onyv"),
+"no": SubResource("Animation_ax2fc"),
+"reduce": SubResource("Animation_0d42x")
+}
+
+[node name="Title" type="TextureRect"]
+custom_minimum_size = Vector2(745, 125)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -372.5
+offset_right = 372.5
+offset_bottom = 125.0
+grow_horizontal = 2
+texture = ExtResource("1_bpoqv")
+script = ExtResource("2_k5ice")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.88
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBox" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 19
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/HBox"]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+texture = ExtResource("2_ifk7m")
+
+[node name="Coins" type="Label" parent="CenterContainer/HBox"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+vertical_alignment = 1
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xnmqk")
+}

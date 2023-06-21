@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=3 uid="uid://gbhsljqgtjen"]
+
+[ext_resource type="Script" path="res://Script/UI/InfoPopup.gd" id="1_3ggf3"]
+[ext_resource type="Theme" uid="uid://c7hfbhu8whrfq" path="res://Asset/Theme/scroll.tres" id="1_3wdr7"]
+[ext_resource type="Texture2D" uid="uid://bwquosnkwdqtr" path="res://Asset/UI/Panel.png" id="3_31e2t"]
+[ext_resource type="FontFile" uid="uid://rery3p2p3u0s" path="res://Asset/Font/DreamSource/DreamHanSans-W23.ttc" id="4_t2lah"]
+[ext_resource type="Texture2D" uid="uid://76517al03tch" path="res://Asset/img/Character/Moon.png" id="5_7glim"]
+[ext_resource type="FontFile" uid="uid://bjou57imk88ov" path="res://Asset/Font/DreamSource/DreamHanSans-W18.ttc" id="5_wou1r"]
+[ext_resource type="FontFile" uid="uid://cddpsm6ki37cr" path="res://Asset/Font/DreamSource/DreamHanSans-W14.ttc" id="6_f35xr"]
+
+[node name="Popup" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -553.0
+offset_right = 450.0
+offset_bottom = 553.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3wdr7")
+script = ExtResource("1_3ggf3")
+
+[node name="Popup" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_31e2t")
+patch_margin_left = 84
+patch_margin_top = 85
+patch_margin_right = 84
+patch_margin_bottom = 87
+
+[node name="VBox" type="VBoxContainer" parent="Popup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.114
+anchor_top = 0.065
+anchor_right = 0.887
+anchor_bottom = 0.935
+offset_left = 0.285995
+offset_top = 0.349998
+offset_right = -0.187012
+offset_bottom = -0.350037
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 54
+
+[node name="VBox" type="VBoxContainer" parent="Popup/VBox"]
+custom_minimum_size = Vector2(0, 780)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Popup/VBox/VBox"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Popup/VBox/VBox/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_fonts/font = ExtResource("4_t2lah")
+theme_override_font_sizes/font_size = 56
+text = "月亮"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Img" type="TextureRect" parent="Popup/VBox/VBox/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 600)
+layout_mode = 2
+texture = ExtResource("5_7glim")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="VBox2" type="VBoxContainer" parent="Popup/VBox/VBox"]
+layout_mode = 2
+
+[node name="Desc" type="Label" parent="Popup/VBox/VBox/VBox2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85098, 0.835294, 0.788235, 1)
+theme_override_fonts/font = ExtResource("5_wou1r")
+theme_override_font_sizes/font_size = 43
+text = "半路出家的化学家，梦想是用微笑换取黄金。
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Effect" type="RichTextLabel" parent="Popup/VBox/VBox/VBox2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_f35xr")
+theme_override_fonts/bold_font = ExtResource("4_t2lah")
+theme_override_fonts/italics_font = ExtResource("5_wou1r")
+theme_override_font_sizes/normal_font_size = 38
+theme_override_font_sizes/italics_font_size = 38
+bbcode_enabled = true
+text = "[center]每秒 + [color=ffe2b2]\" + Item.bonus_str + \"[/color]金币[/center]"
+fit_content = true
+threaded = true
+
+[node name="Cancel" type="Button" parent="Popup/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "关闭"

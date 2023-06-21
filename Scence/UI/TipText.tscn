@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://btahsekr5ck6j"]
+
+[ext_resource type="Script" path="res://Script/UI/TipText.gd" id="1_f7qjq"]
+
+[node name="TipText" type="Label"]
+offset_right = 85.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 50
+text = "+ 100"
+script = ExtResource("1_f7qjq")

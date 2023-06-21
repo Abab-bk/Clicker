@@ -1,0 +1,102 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2bducqq6igs0"]
+
+[ext_resource type="Script" path="res://Script/test.gd" id="1_yeko2"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yeko2")
+
+[node name="label1" type="Label" parent="."]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 404.0
+offset_right = 975.0
+offset_bottom = 469.0
+theme_override_font_sizes/font_size = 42
+text = "数字一"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 624.0
+offset_right = 225.0
+offset_bottom = 685.0
+theme_override_font_sizes/font_size = 42
+text = "数字二"
+
+[node name="output" type="Label" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 891.0
+offset_right = 242.0
+offset_bottom = 952.0
+theme_override_font_sizes/font_size = 42
+text = "Output"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 992.0
+offset_right = 340.0
+offset_bottom = 1058.0
+theme_override_font_sizes/font_size = 31
+text = "相加"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 1074.0
+offset_right = 344.0
+offset_bottom = 1140.0
+theme_override_font_sizes/font_size = 31
+text = "相乘"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 1165.0
+offset_right = 345.0
+offset_bottom = 1231.0
+theme_override_font_sizes/font_size = 31
+text = "相除"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 495.0
+offset_right = 367.0
+offset_bottom = 564.0
+theme_override_font_sizes/font_size = 41
+text = "1"
+
+[node name="LineEdit3" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 495.0
+offset_right = 712.0
+offset_bottom = 564.0
+theme_override_font_sizes/font_size = 41
+text = "1"
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 694.0
+offset_right = 371.0
+offset_bottom = 763.0
+theme_override_font_sizes/font_size = 41
+text = "1"
+
+[node name="LineEdit4" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 694.0
+offset_right = 717.0
+offset_bottom = 763.0
+theme_override_font_sizes/font_size = 41
+text = "1"
