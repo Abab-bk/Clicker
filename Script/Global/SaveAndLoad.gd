@@ -19,6 +19,10 @@ func load_save() -> void:
 	if orginal_data.has("ver"):
 		Global.owned_skills_dic = orginal_data["skills"]
 	
+	if orginal_data.has("first_game"):
+		Global.first_game = orginal_data["first_game"]
+	
+	Global.used_codes = orginal_data["used_codes"]
 	Global.owned_items_dic = orginal_data["items"]
 	Global.coins.load_form_save(orginal_data["coins"])
 	Global.auto_coin.load_form_save(orginal_data["auto_coin"])

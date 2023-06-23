@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=3 uid="uid://c40ti6jefeqyn"]
+
+[ext_resource type="Script" path="res://addons/pocket_ad/PocketADMain.gd" id="2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("2")
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 0
+bbcode_enabled = true
+text = "使用教程：
+1->点击检测模板。检测是否安装导入模板。
+2->插件会自动复制到对应文件加。
+3->点击激活后会检测配置文件，按照对应提示修改即可。
+4->最后重新启动编辑器即可"
+
+[node name="Label2" type="RichTextLabel" parent="."]
+layout_mode = 0
+bbcode_enabled = true
+text = "输出日志："
+scroll_following = true
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+text = "请按照教程点击以下按钮
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 26.0
+offset_right = 137.0
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "检测模板"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "安装广告插件"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "激活广告插件"
+
+[node name="Control" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Control"]
+layout_mode = 2
+placeholder_text = "请输入渠道"
+editable = false
+
+[node name="LineEdit2" type="LineEdit" parent="VBoxContainer/Control"]
+layout_mode = 2
+placeholder_text = "请输入口袋工厂APPID"
+editable = false
+
+[node name="Button4" type="Button" parent="VBoxContainer/Control"]
+layout_mode = 2
+disabled = true
+text = "配置插件渠道与ID"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/Button4" to="." method="_on_Button4_pressed"]

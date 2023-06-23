@@ -51,7 +51,7 @@ modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 offset_right = 196.0
 offset_bottom = 196.0
-scale = Vector2(0.192, 0.192)
+scale = Vector2(0.38, 0.38)
 texture = ExtResource("3_80rlb")
 
 [node name="Vbox" type="VBoxContainer" parent="HBox/HBox"]

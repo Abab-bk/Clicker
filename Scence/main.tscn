@@ -289,6 +289,7 @@ texture_normal = ExtResource("9_yymeo")
 texture_pressed = ExtResource("15_g8h5d")
 
 [node name="Store" type="CanvasLayer" parent="UI"]
+visible = false
 script = ExtResource("6_ddr0y")
 
 [node name="Control" type="Control" parent="UI/Store"]
@@ -673,7 +674,8 @@ theme_override_fonts/font = ExtResource("20_2plv4")
 theme_override_font_sizes/font_size = 47
 text = "Acid  Wall Studio
 Stable Diffusion
-Leonardo.Ai"
+Leonardo.Ai
+Cainos"
 
 [node name="HBox2" type="HBoxContainer" parent="UI/My/Control/Panel/Margin/VBox/Block3/VBox"]
 layout_mode = 2
@@ -706,11 +708,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -27.0
 offset_top = -56.0
-offset_right = 4837.0
-offset_bottom = 6488.0
+offset_right = 529.0
+offset_bottom = 1210.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.753, 0.753)
 texture = ExtResource("23_pevqq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Background"]

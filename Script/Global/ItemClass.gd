@@ -17,6 +17,7 @@ var bonus:Big :
 
 var owned:int = 0 :
 	set(new_value):
+		print(new_value)
 		
 		if not base_cost:
 			return
@@ -26,13 +27,8 @@ var owned:int = 0 :
 		# (base_cost) * (1.15 ^ owned)
 		var temp1:Big = Big.new(1.15).power(owned)
 		
-		print(owned)
-		print(base_cost.toString())
-		print(temp1.toString())
-		
-		cost = Big.new(base_cost.multiply(temp1))
-		
-#		cost = Big.new(Big.new(1.15, owned - 0)) # -> 返回 1.15 的owed - 0 次幂
+		cost = Big.new(Big.new(base_cost).multiply(temp1))
+
 
 func update_info(Info:Dictionary) -> void:
 	id = Info["id"]

@@ -1,11 +1,14 @@
 extends Node
 
+signal message_pre_yes
+
 const UNKONW_NODE = preload("res://Scence/UI/unkonw.tscn")
 const MAX_LEVEL:int = 20
-const CODES:Array = ["2023617", "程怡然"]
+const CODES:Array = ["2023617", "程怡然", "旺仔"]
 const MAX_TIME_DISTANCE:int = 172800
 const VER = 2
 
+var used_codes:Array = []
 var unknow:NinePatchRect
 var unknow_skill:NinePatchRect
 
@@ -17,6 +20,7 @@ var items:VBoxContainer
 var skills:VBoxContainer
 
 var background_audio = AudioServer.get_bus_index("Master")
+var first_game:bool = true
 
 var main_scence
 
@@ -126,10 +130,17 @@ func read_effect(effect:String) -> PackedStringArray:
 	return result
 
 func yes_gifts(code:String) -> void:
-	if code in CODES:
-		Uhd.new_message_popup("兑换结果", "兑换成功！但是什么也没有..")
+	if code in used_codes:
+		Uhd.new_message_popup("兑换结果", "此兑换码已经被使用了...")
+	elif code in CODES:
+		Uhd.new_message_popup("兑换结果", "兑换成功！获得 金币*1000000 ")
+		get_gifts(Big.new(1000000))
+		used_codes.append(code)
 	else:
 		Uhd.new_message_popup("兑换结果", "礼包码不存在..")
+
+func get_gifts(number:Big) -> void:
+	make_money(number)
 
 func set_audio_size(value:float) -> void:
 	AudioServer.set_bus_volume_db(background_audio, linear_to_db(value))
@@ -137,6 +148,7 @@ func set_audio_size(value:float) -> void:
 func _ready() -> void:
 	money_change.connect(Callable(self, "update_coins_text"))
 	money_change.connect(Callable(self, "change"))
+	
 	load_save()
 
 func update_coins_text() -> void:
@@ -146,7 +158,7 @@ func load_save() -> void:
 	SaveAndLoad.load_save()
 	set_audio_size(5.0)
 
-func save() -> void:
+func save() -> bool:
 	var new_save_dic:Dictionary = {}
 	for i in owned_items.keys():
 		new_save_dic[i] = owned_items[i].get_save_data()
@@ -163,48 +175,22 @@ func save() -> void:
 		"added_money": added_money.get_save_data(),
 		"time": Time.get_unix_time_from_system(),
 		"level": level,
-		"ver": VER
+		"used_codes": used_codes,
+		"ver": VER,
+		"first_game": first_game
 	}
 	print("save")
 	SaveAndLoad.save(save_dic)
+	return true
 
 func _notification(what):
-	
-	var new_save_dic:Dictionary = {}
-	# {
-	#   10001: {
-	#    "cost": cost,
-	#    "bonus": bonus,
-	#    "owned": owned,
-	#   },
-	# }
-	for i in owned_items.keys():
-		new_save_dic[i] = owned_items[i].get_save_data()
-	
-	var new_skill_save_dic:Dictionary = {}
-	for i in owned_skills.keys():
-		new_skill_save_dic[i] = owned_skills[i].get_save_data()
-	
-	var save_dic = {
-		"skills": new_skill_save_dic,
-		"items": new_save_dic,
-		"coins": coins.get_save_data(),
-		"auto_coin": auto_coin.get_save_data(),
-		"added_money": added_money.get_save_data(),
-		"time": Time.get_unix_time_from_system(),
-		"level": level,
-		"ver": VER
-	}
-	
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
-		SaveAndLoad.save(save_dic)
-		get_tree().quit()
+		if save():
+			get_tree().quit()
 
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		SaveAndLoad.save(save_dic)
-		get_tree().quit()
-
-
+		if save():
+			get_tree().quit()
 
 func change() -> void:
 	var temp:Array = []

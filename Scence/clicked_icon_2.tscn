@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://uvx41lypopa6"]
+
+[ext_resource type="Texture2D" uid="uid://wxkpc3n3yegt" path="res://Asset/img/Thing/Sheet.png" id="1_qbuwh"]
+[ext_resource type="Script" path="res://Script/clicked_icon.gd" id="2_cbh00"]
+
+[sub_resource type="Curve2D" id="Curve2D_trua6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1, 0, 82.1779, 5.39777, -82.1779, -5.39777, -98, -180, 30.1075, -66.4081, -30.1075, 66.4081, -289, -57, 7.454, -91.303, 7.45396, 91.303, -316, 143)
+}
+point_count = 4
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_trua6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(1, 0)
+rotation = -2.07364
+
+[node name="ClickedIcon" type="Sprite2D" parent="PathFollow2D"]
+scale = Vector2(5, 5)
+texture = ExtResource("1_qbuwh")
+hframes = 12
+vframes = 9
+script = ExtResource("2_cbh00")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

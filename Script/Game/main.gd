@@ -17,8 +17,10 @@ extends Control
 
 @onready var coin_audio: Array = [$Node2D/Mogu/audio1, $Node2D/Mogu/audio2, $Node2D/Mogu/audio3, $Node2D/Mogu/audio4, $Node2D/Mogu/audio5, $Node2D/Mogu/audio6, $Node2D/Mogu/audio7]
 
-var item_scence := preload("res://Scence/UI/item.tscn")
-var skill_scence := preload("res://Scence/UI/Skill.tscn")
+const clicked_icon := preload("res://Scence/clicked_icon.tscn")
+const clicked_icon2 := preload("res://Scence/clicked_icon_2.tscn")
+const item_scence := preload("res://Scence/UI/item.tscn")
+const skill_scence := preload("res://Scence/UI/Skill.tscn")
 var added_money:Big = Big.new(100)
 
 enum PAGE {
@@ -105,6 +107,16 @@ func update_ui() -> void:
 
 func clicked() -> void:
 	Global.make_money(added_money)
+	
+	if randi_range(1,2) == 1:
+		var new_icon = clicked_icon.instantiate()
+		new_icon.position = get_global_mouse_position()
+		Uhd.add_child(new_icon)
+	else:
+		var new_icon = clicked_icon2.instantiate()
+		new_icon.position = get_global_mouse_position()
+		Uhd.add_child(new_icon)
+	
 	Uhd.new_tip("+" + added_money.toString(), Color.WHITE, get_global_mouse_position())
 
 func on_click(event:InputEvent) -> void:

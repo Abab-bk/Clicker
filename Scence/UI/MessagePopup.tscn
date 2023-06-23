@@ -61,6 +61,7 @@ theme_override_font_sizes/font_size = 56
 text = "标题"
 horizontal_alignment = 1
 vertical_alignment = 1
+clip_text = true
 
 [node name="Desc" type="Label" parent="Popup/VBox/VBox"]
 custom_minimum_size = Vector2(0, 300)
@@ -69,8 +70,10 @@ theme_override_colors/font_color = Color(0.729412, 0.713726, 0.670588, 1)
 theme_override_font_sizes/font_size = 56
 text = "内容"
 horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
 
 [node name="Cancel" type="Button" parent="Popup/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 56
-text = "兑换"
+text = "确定"

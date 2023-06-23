@@ -14,8 +14,20 @@ func _ready() -> void:
 	$ColorRect.hide()
 	Global.money_change.connect(Callable(self, "update_ui"))
 	update_ui()
+	
+	if Global.first_game:
+		var new_pop = load("res://Scence/UI/PrivacyPopup.tscn").instantiate()
+		show_color()
+		add_child(new_pop)
 
 func new_message_popup(Title:String, Desc:String) -> void:
+	var new_pop = message_pop.instantiate()
+	new_pop.title = Title
+	new_pop.desc = Desc
+	show_color()
+	add_child(new_pop)
+
+func show_privaci(Title:String, Desc:String) -> void:
 	var new_pop = message_pop.instantiate()
 	new_pop.title = Title
 	new_pop.desc = Desc
