@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://b836lfj4skpb6"]
+
+[ext_resource type="Texture2D" uid="uid://dp5u5tgi77t3o" path="res://Asset/UI/button/ClubButtonNormal.png" id="1_wf2rg"]
+[ext_resource type="Texture2D" uid="uid://c1076r8wpxswr" path="res://Asset/UI/button/ClubButtonPress.png" id="2_8ppph"]
+[ext_resource type="Script" path="res://Script/UI/aitem.gd" id="3_5xhrr"]
+[ext_resource type="Texture2D" uid="uid://wxkpc3n3yegt" path="res://Asset/img/Thing/Sheet.png" id="4_3teyf"]
+[ext_resource type="FontFile" uid="uid://rery3p2p3u0s" path="res://Asset/Font/DreamSource/DreamHanSans-W23.ttc" id="5_ojdaw"]
+
+[node name="Item" type="TextureButton"]
+custom_minimum_size = Vector2(180, 180)
+offset_right = 180.0
+offset_bottom = 180.0
+toggle_mode = true
+texture_normal = ExtResource("1_wf2rg")
+texture_pressed = ExtResource("2_8ppph")
+stretch_mode = 0
+script = ExtResource("3_5xhrr")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(91, 87)
+scale = Vector2(2.106, 2.106)
+
+[node name="Icon" type="Sprite2D" parent="Marker2D"]
+texture_filter = 1
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("4_3teyf")
+hframes = 12
+vframes = 9
+frame = 106
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 125.0
+offset_right = 157.0
+offset_bottom = 178.0
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_fonts/font = ExtResource("5_ojdaw")
+theme_override_font_sizes/font_size = 41
+text = "77"
+horizontal_alignment = 2
+clip_text = true

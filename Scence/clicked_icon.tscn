@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_trua6"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1, 0, -53.7401, 26.163, 53.7401, -26.163, 124, -168, -56.5365, -14.4955, 56.5365, 14.4955, 258, -179, -7.45396, -91.303, 7.45396, 91.303, 343, 190)
+"points": PackedVector2Array(0, 0, 0, 0, 1, 0, -53.7401, 26.163, 53.7401, -26.163, 124, -168, -56.5365, -14.4955, 56.5365, 14.4955, 258, -179, -7.45396, -91.303, 7.45396, 91.303, 531, 1500)
 }
 point_count = 4
 
@@ -17,6 +17,7 @@ position = Vector2(1, 0)
 rotation = -0.938822
 
 [node name="ClickedIcon" type="Sprite2D" parent="PathFollow2D"]
+texture_filter = 1
 scale = Vector2(5, 5)
 texture = ExtResource("1_f3xi0")
 hframes = 12
@@ -24,5 +25,4 @@ vframes = 9
 script = ExtResource("2_jikh2")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true

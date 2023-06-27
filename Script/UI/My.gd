@@ -1,8 +1,9 @@
 extends CanvasLayer
 
 func _ready() -> void:
-	$Control/Panel/Margin/VBox/Block/HBox/Del.pressed.connect(Callable(self, "del_save"))
-	$Control/Panel/Margin/VBox/Block/HBox/Gift.pressed.connect(Callable(self, "gifts"))
+	$Control/Panel/Margin/VBox/Block/VBox/HBox/Del.pressed.connect(Callable(self, "del_save"))
+	$Control/Panel/Margin/VBox/Block/VBox/HBox/Gift.pressed.connect(Callable(self, "gifts"))
+#	$Control/Panel/Margin/VBox/Block/VBox/HBox2/ReworkSkil.pressed.connect(Callable(self, "rework_skill"))
 	$Control/Panel/Margin/VBox/Block2/HBox/HSlider.value_changed.connect(Callable(self, "set_audio"))
 
 func set_audio(value:float) -> void:

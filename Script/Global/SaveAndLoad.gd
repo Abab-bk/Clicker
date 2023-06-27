@@ -16,12 +16,6 @@ func load_save() -> void:
 	var orginal_data:Dictionary = file.get_var(true)
 	file.close()
 	
-	if orginal_data.has("ver"):
-		Global.owned_skills_dic = orginal_data["skills"]
-	
-	if orginal_data.has("first_game"):
-		Global.first_game = orginal_data["first_game"]
-	
 	Global.used_codes = orginal_data["used_codes"]
 	Global.owned_items_dic = orginal_data["items"]
 	Global.coins.load_form_save(orginal_data["coins"])
@@ -30,4 +24,14 @@ func load_save() -> void:
 	Global.time_distance = int(orginal_data["time"])
 	Global.level = orginal_data["level"]
 	
+	if orginal_data.has("ver"):
+		Global.owned_skills_dic = orginal_data["skills"]
+		if orginal_data["ver"] < Global.VER:
+			print("版本过低，重新计算收益")
+			Global.rework_skill()
 	
+	if orginal_data.has("first_game"):
+		Global.first_game = orginal_data["first_game"]
+	
+	if orginal_data.has("pot_bag"):
+		Global.pot_bag = orginal_data["pot_bag"]

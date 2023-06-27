@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://c7hfbhu8whrfq"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://c7hfbhu8whrfq"]
 
 [ext_resource type="FontFile" uid="uid://cddpsm6ki37cr" path="res://Asset/Font/DreamSource/DreamHanSans-W14.ttc" id="1_ncxvc"]
+[ext_resource type="FontFile" uid="uid://bjou57imk88ov" path="res://Asset/Font/DreamSource/DreamHanSans-W18.ttc" id="1_rmcqt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dli2"]
 bg_color = Color(0.419608, 0.172549, 0.137255, 1)
@@ -60,6 +61,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 default_font = ExtResource("1_ncxvc")
 Button/colors/font_color = Color(0.85098, 0.835294, 0.788235, 1)
 Button/colors/font_pressed_color = Color(1, 0.886275, 0.698039, 1)
+Button/fonts/font = ExtResource("1_rmcqt")
 Button/styles/hover = SubResource("StyleBoxFlat_4dli2")
 Button/styles/normal = SubResource("StyleBoxFlat_qgjht")
 Button/styles/pressed = SubResource("StyleBoxFlat_ls5hs")

@@ -6,6 +6,8 @@ func _ready() -> void:
 
 func yes() -> void:
 	Global.first_game = false
+	Uhd.hide_color()
+	queue_free()
 
 func no() -> void:
 	Global.first_game = true

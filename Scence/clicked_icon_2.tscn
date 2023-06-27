@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_trua6"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1, 0, 82.1779, 5.39777, -82.1779, -5.39777, -98, -180, 30.1075, -66.4081, -30.1075, 66.4081, -289, -57, 7.454, -91.303, 7.45396, 91.303, -316, 143)
+"points": PackedVector2Array(0, 0, 0, 0, 1, 0, 82.1779, 5.39777, -82.1779, -5.39777, -98, -180, 30.1075, -66.4081, -30.1075, 66.4081, -289, -57, 7.454, -91.303, 7.45396, 91.303, -386, 678)
 }
 point_count = 4
 
@@ -17,6 +17,7 @@ position = Vector2(1, 0)
 rotation = -2.07364
 
 [node name="ClickedIcon" type="Sprite2D" parent="PathFollow2D"]
+texture_filter = 1
 scale = Vector2(5, 5)
 texture = ExtResource("1_qbuwh")
 hframes = 12

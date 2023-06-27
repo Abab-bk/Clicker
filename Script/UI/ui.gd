@@ -13,6 +13,8 @@ var coin_unit:String = ""
 func _ready() -> void:
 	$ColorRect.hide()
 	Global.money_change.connect(Callable(self, "update_ui"))
+	$RewardAD.pressed.connect(Callable(self, "try_reward_ad"))
+	$Fly.pressed.connect(Callable(self, "fly"))
 	update_ui()
 	
 	if Global.first_game:
@@ -20,10 +22,24 @@ func _ready() -> void:
 		show_color()
 		add_child(new_pop)
 
-func new_message_popup(Title:String, Desc:String) -> void:
+func fly() -> void:
+	pass
+
+func try_reward_ad() -> void:
+	if AdManager.is_android():
+		AdManager.ShowRewardAD("57075")
+
+func new_ad_pop() -> void:
+	var n = load("res://Scence/UI/ADPop.tscn")
+	var new_pop = n.instantiate()
+	add_child(new_pop)
+
+func new_message_popup(Title:String, Desc:String, img:String = "") -> void:
 	var new_pop = message_pop.instantiate()
 	new_pop.title = Title
 	new_pop.desc = Desc
+	if img != "":
+		new_pop.img = load(img)
 	show_color()
 	add_child(new_pop)
 

@@ -1,5 +1,8 @@
 extends Control
 
+signal change_page_to_other
+signal change_page_to_home
+
 @onready var timer: Timer = $Timer
 @onready var main_item: Control = $Node2D/Mogu/Control
 @onready var Main_Item_UI: Sprite2D = $Node2D/Mogu
@@ -12,6 +15,7 @@ extends Control
 @onready var My_UI: CanvasLayer = $UI/My
 @onready var Chart_UI: CanvasLayer = $UI/Chart
 @onready var Sotre_UI: CanvasLayer = $UI/Store
+@onready var Tower_UI: CanvasLayer = $UI/Battle
 @onready var Sotre_Skill_UI: ScrollContainer = $UI/Store/Control/Panel/VBox/Center2/VBox/Store/VBox/Scroll2
 @onready var Sotre_Item_UI: ScrollContainer = $UI/Store/Control/Panel/VBox/Center2/VBox/Store/VBox/Scroll
 
@@ -30,6 +34,7 @@ enum PAGE {
 	STORE,
 	ITEM,
 	SKILL,
+	TOWER,
 }
 
 #func _process(delta: float) -> void:
@@ -43,9 +48,13 @@ func _ready() -> void:
 	$UI/ToolBar/HBox/Store.pressed.connect(Callable(self, "change_page").bind(PAGE.STORE))
 	$UI/ToolBar/HBox/My.pressed.connect(Callable(self, "change_page").bind(PAGE.MY))
 	$UI/ToolBar/HBox/Chart.pressed.connect(Callable(self, "change_page").bind(PAGE.CHART))
+	$UI/ToolBar/HBox/Battle.pressed.connect(Callable(self, "change_page").bind(PAGE.TOWER))
 	
 	$UI/Store/Control/Panel/VBox/Center2/VBox/Bar/HBox/Item.pressed.connect(Callable(self, "change_page").bind(PAGE.ITEM))
 	$UI/Store/Control/Panel/VBox/Center2/VBox/Bar/HBox/Skill.pressed.connect(Callable(self, "change_page").bind(PAGE.SKILL))
+	
+#	$UI/Store/Control/Panel/VBox/Center2/VBox/Store.custom_minimum_size.y = DisplayServer.    ProjectSettings.get("display/window/size/viewport_height") * 0.7
+	
 	
 	timer.timeout.connect(Callable(self, "auto_add_money"))
 	main_item.gui_input.connect(Callable(self, "on_click"))
@@ -69,6 +78,11 @@ func _ready() -> void:
 	timer.start()
 	Global.start()
 	
+	if Engine.has_singleton("PockADPlugin"):
+		var singleton = Engine.get_singleton("PockADPlugin")
+		singleton.preLoadFullScreenAD("Hello, PocketAD By BR")
+	
+	Global.main_ready.emit()
 
 func change_page(page:int) -> void:
 	Main_Item_UI.hide()
@@ -77,27 +91,39 @@ func change_page(page:int) -> void:
 	Sotre_Item_UI.hide()
 	Sotre_Skill_UI.hide()
 	Chart_UI.hide()
+	Tower_UI.hide()
+	
 	Uhd.hide_ui()
 	
 	match page:
 		PAGE.HOME:
+			change_page_to_home.emit()
 			Main_Item_UI.show()
 			Uhd.show_ui()
 		PAGE.STORE:
+			change_page_to_other.emit()
 			Sotre_Item_UI.show()
 			Sotre_UI.show()
 		PAGE.MY:
+			change_page_to_other.emit()
 			My_UI.show()
 		PAGE.CHART:
+			change_page_to_other.emit()
 			Chart_UI.show()
 		PAGE.ITEM:
+			change_page_to_other.emit()
 			Sotre_UI.show()
 			Sotre_Skill_UI.hide()
 			Sotre_Item_UI.show()
 		PAGE.SKILL:
+			change_page_to_other.emit()
 			Sotre_UI.show()
 			Sotre_Item_UI.hide()
 			Sotre_Skill_UI.show()
+		PAGE.TOWER:
+			change_page_to_other.emit()
+			Tower_UI.show()
+			$UI/Battle/Pot.gen_item()
 
 func auto_add_money() -> void:
 	Global.auto_make_money()

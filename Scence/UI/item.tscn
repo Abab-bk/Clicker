@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c1076r8wpxswr" path="res://Asset/UI/button/ClubButtonPress.png" id="8_kdjq8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_36ai0"]
+line_spacing = 0.0
 font = ExtResource("6_tva4q")
 font_size = 29
 font_color = Color(0.807843, 0.717647, 0.54902, 1)
@@ -87,15 +88,27 @@ theme_override_fonts/font = ExtResource("5_yxvxi")
 theme_override_font_sizes/font_size = 49
 text = "舞女郎"
 
-[node name="Desc" type="Label" parent="HBox/HBox/Vbox"]
-custom_minimum_size = Vector2(0, 80)
+[node name="VBox" type="VBoxContainer" parent="HBox/HBox/Vbox"]
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="Desc" type="Label" parent="HBox/HBox/Vbox/VBox"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 29
 text = "她的机械舞肢比人体更流畅，动作极富诱惑，毕竟"
 label_settings = SubResource("LabelSettings_36ai0")
-autowrap_mode = 2
 clip_text = true
+text_overrun_behavior = 4
 max_lines_visible = 2
+
+[node name="Earn" type="RichTextLabel" parent="HBox/HBox/Vbox/VBox"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_tva4q")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[color=#FFE2B2]+75/s[/color]"
 
 [node name="Center" type="CenterContainer" parent="HBox"]
 layout_mode = 2

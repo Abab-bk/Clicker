@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc1ddmqpjsnov"]
+
+[ext_resource type="Script" path="res://Script/ADPop.gd" id="1_0qhbn"]
+[ext_resource type="Theme" uid="uid://c7hfbhu8whrfq" path="res://Asset/Theme/scroll.tres" id="1_1d88o"]
+[ext_resource type="Texture2D" uid="uid://bwquosnkwdqtr" path="res://Asset/UI/Panel.png" id="1_54fkc"]
+[ext_resource type="FontFile" uid="uid://rery3p2p3u0s" path="res://Asset/Font/DreamSource/DreamHanSans-W23.ttc" id="2_f86bk"]
+[ext_resource type="FontFile" uid="uid://bjou57imk88ov" path="res://Asset/Font/DreamSource/DreamHanSans-W18.ttc" id="4_cjk4n"]
+[ext_resource type="Texture2D" uid="uid://ge7kbmys04w" path="res://Asset/img/Thing/Made.png" id="5_wh3k8"]
+
+[node name="ADPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -465.0
+offset_top = -572.0
+offset_right = 465.0
+offset_bottom = 572.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1d88o")
+script = ExtResource("1_0qhbn")
+
+[node name="Popup" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_54fkc")
+patch_margin_left = 84
+patch_margin_top = 85
+patch_margin_right = 84
+patch_margin_bottom = 87
+
+[node name="VBox" type="VBoxContainer" parent="Popup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.114
+anchor_top = 0.065
+anchor_right = 0.887
+anchor_bottom = 0.935
+offset_left = 0.285995
+offset_top = 0.349998
+offset_right = -0.187012
+offset_bottom = -0.350037
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="VBox" type="VBoxContainer" parent="Popup/VBox"]
+custom_minimum_size = Vector2(0, 700)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Popup/VBox/VBox"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Popup/VBox/VBox/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_fonts/font = ExtResource("2_f86bk")
+theme_override_font_sizes/font_size = 56
+text = "意外产物"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Img" type="TextureRect" parent="Popup/VBox/VBox/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+texture = ExtResource("5_wh3k8")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="VBox2" type="VBoxContainer" parent="Popup/VBox/VBox"]
+layout_mode = 2
+
+[node name="Desc" type="Label" parent="Popup/VBox/VBox/VBox2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85098, 0.835294, 0.788235, 1)
+theme_override_fonts/font = ExtResource("4_cjk4n")
+theme_override_font_sizes/font_size = 43
+text = "炼金术士工作时的意外产物，要打开看看吗？（看广告获得奖励）"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Btn" type="VBoxContainer" parent="Popup/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Set1" type="Button" parent="Popup/VBox/Btn"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "确认"
+
+[node name="Set2" type="Button" parent="Popup/VBox/Btn"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "关闭"

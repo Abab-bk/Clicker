@@ -203,7 +203,6 @@ SDK名称	SDK使用目的	SDK收集的信息	隐私政策链接
 我们还会将本隐私政策的旧版本存档，供您查阅。"
 horizontal_alignment = 1
 autowrap_mode = 2
-clip_text = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Popup/VBox"]
 layout_mode = 2

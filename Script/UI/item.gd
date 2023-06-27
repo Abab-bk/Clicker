@@ -36,9 +36,10 @@ func update_buy_state() -> void:
 
 func update_self() -> void:
 	own_node.text = str(Item.owned)
+	cost_node.text = Item.cost.toString()
+	Item.bonus_str = Item.bonus.toAA()
 	
 	$HBox/HBox/Vbox/HBox/Name.text = Item.the_name
-	$HBox/HBox/Vbox/Desc.text = Item.desc
-	cost_node.text = Item.cost.toString()
-	
+	$HBox/HBox/Vbox/VBox/Earn.text = "[color=#FFE2B2]+" + Item.bonus_str + "/s" + "[/color]"
+	$HBox/HBox/Vbox/VBox/Desc.text = Item.desc
 	$HBox/HBox/Container/Icon.texture = load("res://Asset/img/Character/" + Item.img_path)

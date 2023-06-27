@@ -1,0 +1,8 @@
+[config]
+name="RealPocket"
+binary_type="local"
+binary="FlowerAD-release.aar"
+[dependencies]
+custom_maven_repos=["https://jitpack.io"]
+local=["csj_ad_sdk_230215.aar","gdt_ad_sdk_230210.aar","ks_ad_sdk_230116.aar","pocket_ad_sdk_3.2.8.aar"]
+remote=["com.squareup.okhttp3:okhttp:4.9.2","com.google.code.gson:gson:2.8.8","androidx.legacy:legacy-support-core-ui:1.0.0","androidx.appcompat:appcompat:1.1.0","com.google.android.material:material:1.1.0","androidx.constraintlayout:constraintlayout:1.1.3"]

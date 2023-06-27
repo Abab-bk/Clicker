@@ -2,6 +2,23 @@ extends RefCounted
 
 class_name Item_Class
 
+#var one_item_bonus:Big = Big.new(1)
+#var now_level:float = 1.0:
+#	set(n):
+#		if not base_bonus:
+#			return
+#		one_item_bonus = Big.new(base_bonus).multiply(now_level)
+#
+#		# 减去原来收益
+#		bonus.minus(one_item_bonus.multiply(owned))
+#
+#		# 重新计算一个物品收益
+#		now_level = n
+#		one_item_bonus = Big.new(base_bonus).multiply(now_level)
+#		base_bonus = one_item_bonus
+#
+#		# 加上新收益
+#		bonus.plus(Big.new(base_bonus).multiply(now_level))
 var id:int
 var the_name:String
 var desc:String
@@ -9,10 +26,12 @@ var img_path:String
 var cost:Big
 var base_cost:Big
 var bonus_str:String = "0"
+var base_bonus:Big
 var bonus:Big :
 	set(new_value):
 		bonus = new_value
 		bonus_str = new_value.toAA()
+#		Global.auto_coin.minus(Big.new(one_item_bonus).multiply(owned)).plus(Big.new(one_item_bonus).multiply(owned))
 		Uhd.update_ui()
 
 var owned:int = 0 :
@@ -29,7 +48,6 @@ var owned:int = 0 :
 		
 		cost = Big.new(Big.new(base_cost).multiply(temp1))
 
-
 func update_info(Info:Dictionary) -> void:
 	id = Info["id"]
 	the_name = Info["name"]
@@ -38,6 +56,8 @@ func update_info(Info:Dictionary) -> void:
 	cost = Big.new(Info["cost"][0], Info["cost"][1])
 	base_cost = Big.new(Info["cost"][0], Info["cost"][1])
 	bonus = Big.new(Info["bonus"][0], Info["bonus"][1])
+	base_bonus = Big.new(Info["bonus"][0], Info["bonus"][1])
+	
 	Global.level_list.append(cost)
 
 func check_load() -> void:
@@ -51,9 +71,12 @@ func get_save_data() -> Dictionary:
 		"bonus": bonus.get_save_data(),
 		"owned": owned,
 	}
+#	"now_level": now_level
 	return new_dic
 
 func load_form_save(save:Dictionary) -> void:
+#	if save.has("now_level"):
+#		now_level = save["now_level"]
 	cost.load_form_save(save["cost"])
 	bonus.load_form_save(save["bonus"])
 	owned = save["owned"]

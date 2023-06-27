@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bstf4kgb2yjy6"]
+
+[ext_resource type="Texture2D" uid="uid://6qkbw4rmrcq3" path="res://Asset/img/Thing/Chest.png" id="1_we4ef"]
+[ext_resource type="Texture2D" uid="uid://1iohgh8tfbyn" path="res://Asset/img/Thing/ChestPressed.png" id="2_8h2c6"]
+[ext_resource type="Script" path="res://Script/chest.gd" id="2_v1re7"]
+
+[node name="Chest" type="TextureButton"]
+offset_right = 400.0
+offset_bottom = 400.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("1_we4ef")
+texture_pressed = ExtResource("2_8h2c6")
+script = ExtResource("2_v1re7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
