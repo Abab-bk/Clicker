@@ -15,6 +15,9 @@ var data = \
 60005:{ "id":60005,  "name":'第二个酒吧',  "bonus":'add[10004][coins][efficiency][1.1]',  "desc":'炼金石磨听音乐的时候，身体会颤抖。炼金石磨获得金币 +0.1倍。',  "img":'', },
 60006:{ "id":60006,  "name":'PhoneProject2',  "bonus":'add[10005][coins][efficiency][1.1]',  "desc":'炼成阵听音乐的时候，身体会颤抖。炼成阵获得金币 +0.1倍。',  "img":'', },
 60007:{ "id":60007,  "name":'Rudy',  "bonus":'add[10006][coins][efficiency][1.1]',  "desc":'红宝石找到了它异父异母的兄弟。Puts "Hey"。红宝石获得金币 +0.1 倍。',  "img":'', },
+60008:{ "id":60008,  "name":'神秘药剂',  "bonus":'add[10002][bonus][efficiency][900000]',  "desc":'“抛开剂量谈毒性就是耍流氓” 金币 +900000。',  "img":'', },
+60009:{ "id":60009,  "name":'神秘药剂',  "bonus":'reduce[10002][coins][efficiency][900000]',  "desc":'“抛开剂量谈毒性就是耍流氓” 金币 -900000。',  "img":'', },
+60010:{ "id":60010,  "name":'化学家',  "bonus":'add[10002][bonus][efficiency][7777777]',  "desc":'炼金术士认为化学家拙略的模仿他们。+7777777金币。',  "img":'', },
 
 }
 
