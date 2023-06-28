@@ -65,12 +65,17 @@ func _ready() -> void:
 	for i in Settings.Items.data:
 		var new_item_node = item_scence.instantiate()
 		new_item_node.Item.update_info(Settings.Items.data[i])
-		items.add_child(new_item_node)
+#		items.add_child(new_item_node)
+		items.call_deferred("add_child", new_item_node)
 	
+	
+	# TODO: 按照上一级添加
 	for i in Settings.Skills.data:
+
 		var new_skill_node = skill_scence.instantiate()
 		new_skill_node.Skill.update_info(Settings.Skills.data[i])
-		skills.add_child(new_skill_node)
+#		skills.add_child(new_skill_node)
+		skills.call_deferred("add_child", new_skill_node)
 	
 	Global.items = items
 	Global.skills = skills

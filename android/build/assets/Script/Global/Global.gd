@@ -42,7 +42,7 @@ var auto_coin:Big = Big.new(0):
 		auto_coin = n
 		min_coins = Big.new(auto_coin).multiply(60)
 
-var added_money:Big = Big.new(1)
+var added_money:Big = Big.new(1000000)
 # {
 #   10001（ID）: Item_Class（对象）
 # }
@@ -113,27 +113,31 @@ func rework_skill() -> void:
 func apply_effect(effect:PackedStringArray) -> void:
 	# ["add[10001][bonus][efficiency][2.0]", "add", "10001", "bonus", "efficiency", "2.0"]
 	# ["click[10001][bonus][efficiency][2.0]", "click", "10001", "bonus", "efficiency", "2.0"]
-	
+	print("应用效果")
 	target_effect["Type"] = effect[1] # -> add
+	print(target_effect["Type"], effect[1])
 	target_effect["Properties"] = effect[3]
 	target_effect["Multiplier"] = float(effect[5])
 	target_item_id = int(effect[2]) # -> 10001
 	
-	# 判断该物品是否存在：
-	if not owned_items.has(target_item_id):
-		return
-	
-	# 获取受影响物品的总数
-	item_count = owned_items[target_item_id]["owned"]
-	
 	# 匹配效果
 	match target_effect["Type"]:
 		"add":
+			# 判断该物品是否存在：
+			print("物品ID： ", target_item_id)
+			if not owned_items.has(target_item_id):
+				print(owned_items)
+				print("物品不存在")
+				return
+			# 获取受影响物品的总数
+			print("物品存在")
+			item_count = owned_items[target_item_id]["owned"]
 			# 先拿到受影响物品
 			var target_item:Item_Class = owned_items[target_item_id]
 			# 先判断目标是否有这个效果
 			if not target_item.get(target_effect["Properties"]):
 				return
+			# 拿到原始效果
 			var origin_pro:Big = target_item.get(target_effect["Properties"]) # -> bonus
 			
 			# 然后设置新效果
@@ -149,12 +153,14 @@ func apply_effect(effect:PackedStringArray) -> void:
 			# 最后让受影响物品增加效果
 			# plus(单个物品的收益 * 物品数量 - 原来单个收益 * 物品数量)
 			auto_coin.plus(Big.new(new_effect).multiply(item_count).minus(Big.new(origin_pro).multiply(item_count)))
-			
 		"click":
 			added_money = added_money.multiply(target_effect["Multiplier"])
 		"reduce":
-			print("reduce")
+			print("减少钱")
 			coins.minus(int(target_effect["Multiplier"]))
+		"coins":
+			print("增加钱")
+			coins.plus(int(target_effect["Multiplier"]))
 
 func read_effect(effect:String) -> PackedStringArray:
 	var reg := RegEx.new()
@@ -239,16 +245,16 @@ func change() -> void:
 	if temp.is_empty():
 		return
 	
-	
 	for i in temp:
 		level_list.erase(i)
-	
 	
 	start()
 
 func remove_unknow_node() -> void:
 	if unknow:
 		unknow.queue_free()
+	if unknow_skill:
+		unknow_skill.queue_free()
 
 func add_unknow_node() -> void:
 	var new_node = UNKONW_NODE.instantiate()

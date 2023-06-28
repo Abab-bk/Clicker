@@ -65,6 +65,7 @@ func start_work() -> void:
 		work = Settings.Recipe.data[randi_range(60001, 60010)]
 	
 	var temp = Global.read_effect(work["bonus"])
+	print("尝试应用效果")
 	Global.apply_effect(temp)
 	
 	Uhd.new_message_popup("获得：" + work["name"], work["desc"])
@@ -73,9 +74,9 @@ func start_work() -> void:
 func gen_item() -> void:
 	for i in grid.get_children():
 		i.queue_free()
-	
 	for i in Global.pot_bag:
 		var new_item = ITEM.instantiate()
 		new_item.id = int(i)
 		new_item.num = Global.pot_bag[i]
-		grid.add_child(new_item)
+		grid.call_deferred("add_child", new_item)
+#		grid.add_child(new_item)
