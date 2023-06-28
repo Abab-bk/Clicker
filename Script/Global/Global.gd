@@ -9,7 +9,7 @@ const UNKONW_NODE = preload("res://Scence/UI/unkonw.tscn")
 const MAX_LEVEL:int = 20
 const CODES:Array = ["2023617", "程怡然", "旺仔", "炼金术士Clicker", "AcidWallStudio"]
 const MAX_TIME_DISTANCE:int = 172800
-const VER = 6
+const VER = 7
 
 var pot_bag:Dictionary = {} # {106: 7}
 
@@ -23,6 +23,7 @@ var skill_level_list:Array = []
 var skill_level:int = 1
 var items:VBoxContainer
 var skills:VBoxContainer
+var not_added_skills:Array = []
 
 var background_audio = AudioServer.get_bus_index("Master")
 var first_game:bool = true
@@ -124,13 +125,9 @@ func apply_effect(effect:PackedStringArray) -> void:
 	match target_effect["Type"]:
 		"add":
 			# 判断该物品是否存在：
-			print("物品ID： ", target_item_id)
 			if not owned_items.has(target_item_id):
-				print(owned_items)
-				print("物品不存在")
 				return
 			# 获取受影响物品的总数
-			print("物品存在")
 			item_count = owned_items[target_item_id]["owned"]
 			# 先拿到受影响物品
 			var target_item:Item_Class = owned_items[target_item_id]
@@ -187,7 +184,6 @@ func set_audio_size(value:float) -> void:
 func _ready() -> void:
 	money_change.connect(Callable(self, "update_coins_text"))
 	money_change.connect(Callable(self, "change"))
-	
 	load_save()
 	
 	min_coins = Big.new(auto_coin).multiply(60)
@@ -219,7 +215,8 @@ func save() -> bool:
 		"used_codes": used_codes,
 		"ver": VER,
 		"first_game": first_game,
-		"pot_bag": pot_bag
+		"pot_bag": pot_bag,
+		"not_added_skills": not_added_skills
 	}
 	print("save")
 	SaveAndLoad.save(save_dic)
@@ -253,16 +250,11 @@ func change() -> void:
 func remove_unknow_node() -> void:
 	if unknow:
 		unknow.queue_free()
-	if unknow_skill:
-		unknow_skill.queue_free()
 
 func add_unknow_node() -> void:
 	var new_node = UNKONW_NODE.instantiate()
 	items.add_child(new_node)
-	var new_node2 = UNKONW_NODE.instantiate()
-	skills.add_child(new_node2)
 	unknow = new_node
-	unknow_skill = new_node2
 
 func start():
 	remove_unknow_node()

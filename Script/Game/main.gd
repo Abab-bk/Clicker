@@ -40,6 +40,13 @@ enum PAGE {
 #func _process(delta: float) -> void:
 #	Store_Panel.custom_minimum_size.y = (ProjectSettings.get("display/window/size/viewport_height") * 0.73)
 #
+func add_next_skill(id:int) -> void:
+	if Settings.Skills.data.has(id + 1):
+		if Settings.Skills.data[id + 1]["last"] != 0:
+			var new_skill_node = skill_scence.instantiate()
+			new_skill_node.Skill.update_info(Settings.Skills.data[id + 1])
+	#		skills.add_child(new_skill_node)
+			skills.call_deferred("add_child", new_skill_node)
 
 func _ready() -> void:
 	Global.main_scence = self
@@ -55,7 +62,6 @@ func _ready() -> void:
 	
 #	$UI/Store/Control/Panel/VBox/Center2/VBox/Store.custom_minimum_size.y = DisplayServer.    ProjectSettings.get("display/window/size/viewport_height") * 0.7
 	
-	
 	timer.timeout.connect(Callable(self, "auto_add_money"))
 	main_item.gui_input.connect(Callable(self, "on_click"))
 	Global.money_change.connect(Callable(self, "update_ui"))
@@ -68,14 +74,33 @@ func _ready() -> void:
 #		items.add_child(new_item_node)
 		items.call_deferred("add_child", new_item_node)
 	
-	
-	# TODO: 按照上一级添加
-	for i in Settings.Skills.data:
-
-		var new_skill_node = skill_scence.instantiate()
-		new_skill_node.Skill.update_info(Settings.Skills.data[i])
-#		skills.add_child(new_skill_node)
-		skills.call_deferred("add_child", new_skill_node)
+	# TODO: 按照可以被添加的升级数组添加
+	print(Global.not_added_skills)
+	if not Global.not_added_skills.is_empty():
+		for i in Settings.Skills.data:
+			if Global.not_added_skills.has(i):
+				continue
+			
+			if Global.not_added_skills.has(i - 1):
+				var new_skill_node = skill_scence.instantiate()
+				new_skill_node.Skill.update_info(Settings.Skills.data[i])
+			#	skills.add_child(new_skill_node)
+				skills.call_deferred("add_child", new_skill_node)
+				continue
+			
+			if Settings.Skills.data[i]["last"] == 0:
+				var new_skill_node = skill_scence.instantiate()
+				new_skill_node.Skill.update_info(Settings.Skills.data[i])
+			#	skills.add_child(new_skill_node)
+				skills.call_deferred("add_child", new_skill_node)
+			
+	else:
+		for i in Settings.Skills.data:
+			if Settings.Skills.data[i]["last"] == 0:
+				var new_skill_node = skill_scence.instantiate()
+				new_skill_node.Skill.update_info(Settings.Skills.data[i])
+			#	skills.add_child(new_skill_node)
+				skills.call_deferred("add_child", new_skill_node)
 	
 	Global.items = items
 	Global.skills = skills

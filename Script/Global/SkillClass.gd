@@ -2,6 +2,7 @@ extends Node
 
 class_name Skill_Class
 
+signal buyed
 signal queue_self
 
 var owned:bool = false :
@@ -22,7 +23,6 @@ func check_load() -> void:
 	if Global.owned_skills_dic.has(id):
 		load_form_save(Global.owned_skills_dic[id])
 		Global.owned_skills[id] = self
-		
 
 func get_save_data() -> Dictionary:
 	var new_dic:Dictionary = {
@@ -54,6 +54,8 @@ func try_to_buy(mouse_pos:Vector2) -> bool:
 		# 先判断有没有目标物品
 		Uhd.new_tip("-" + cost_str, Color.WHITE, mouse_pos)
 		Global.spent_money(cost)
+		buyed.emit(id)
+		Global.not_added_skills.append(id)
 		Global.owned_skills[id] = self
 		owned = true
 		return true

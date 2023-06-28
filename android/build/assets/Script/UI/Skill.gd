@@ -3,11 +3,12 @@ extends NinePatchRect
 var Skill:Skill_Class = Skill_Class.new()
 
 func queue_self() -> void:
-	hide()
+	queue_free()
 
 func try_to_buy() -> void:
 	if not Skill.try_to_buy(get_global_mouse_position()):
 		return
+	
 	Skill.apply_effect()
 	Global.save()
 
@@ -18,6 +19,7 @@ func _ready() -> void:
 	update_self()
 	Skill.queue_self.connect(Callable(self, "queue_self"))
 	Skill.check_load()
+	Skill.buyed.connect(Callable(Global.main_scence, "add_next_skill"))
 	$HBox/Center/HBox/Buy.pressed.connect(Callable(self, "try_to_buy"))
 	$HBox/Center/HBox/Info.pressed.connect(Callable(self, "show_info"))
 

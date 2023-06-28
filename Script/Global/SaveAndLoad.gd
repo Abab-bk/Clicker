@@ -26,12 +26,20 @@ func load_save() -> void:
 	
 	if orginal_data.has("ver"):
 		Global.owned_skills_dic = orginal_data["skills"]
-		if orginal_data["ver"] < Global.VER:
+		if orginal_data["ver"] < 5:
 			print("版本过低，重新计算收益")
 			Global.rework_skill()
+		if orginal_data["ver"] < 7:
+			# 转换存档
+			for id in orginal_data["skills"]:
+				Global.not_added_skills.append(id)
 	
 	if orginal_data.has("first_game"):
 		Global.first_game = orginal_data["first_game"]
 	
 	if orginal_data.has("pot_bag"):
 		Global.pot_bag = orginal_data["pot_bag"]
+	
+	if orginal_data.has("not_added_skills"):
+		Global.not_added_skills = orginal_data["not_added_skills"]
+	
