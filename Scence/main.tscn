@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://bhxk4wsnsy0qn"]
+[gd_scene load_steps=69 format=3 uid="uid://bhxk4wsnsy0qn"]
 
 [ext_resource type="Theme" uid="uid://c7hfbhu8whrfq" path="res://Asset/Theme/scroll.tres" id="1_aam76"]
 [ext_resource type="Script" path="res://Script/Game/main.gd" id="1_upif0"]
@@ -38,13 +38,21 @@
 [ext_resource type="Texture2D" uid="uid://c04ssvd657qo5" path="res://Asset/UI/TitleBar.png" id="33_c0hj5"]
 [ext_resource type="Texture2D" uid="uid://c1076r8wpxswr" path="res://Asset/UI/button/ClubButtonPress.png" id="34_rwxfs"]
 [ext_resource type="Texture2D" uid="uid://tf5resvong6o" path="res://Asset/UI/button/GradenNormal.png" id="36_fhcnu"]
+[ext_resource type="PackedScene" uid="uid://daoqk5pqph7ot" path="res://Scence/UI/battle_ui.tscn" id="36_jdhvg"]
 [ext_resource type="Texture2D" uid="uid://okh136q6am4h" path="res://Asset/UI/button/GradenPress.png" id="37_00pas"]
 [ext_resource type="Texture2D" uid="uid://celobm3cmaye5" path="res://Asset/UI/button/PotPressNormal.png" id="38_42m34"]
 [ext_resource type="PackedScene" uid="uid://b836lfj4skpb6" path="res://Scence/UI/aitem.tscn" id="38_eu8w3"]
 [ext_resource type="Script" path="res://Script/Pot.gd" id="38_l2s0c"]
+[ext_resource type="Texture2D" uid="uid://prjhoae6p3cu" path="res://Asset/UI/button/FireNormal.png" id="39_avcy5"]
 [ext_resource type="Texture2D" uid="uid://ca3ndeywbytn6" path="res://Asset/UI/button/PotPress.png" id="39_c0ymp"]
 [ext_resource type="Texture2D" uid="uid://c1xbao2e6tbmv" path="res://Asset/UI/button/PotPressDis.png" id="40_12rqw"]
+[ext_resource type="Texture2D" uid="uid://1603lba0uwoq" path="res://Asset/UI/button/FirePress.png" id="40_kqe7r"]
 [ext_resource type="Texture2D" uid="uid://by73i5yfiw1xb" path="res://Asset/UI/button/GradenDis.png" id="41_gn3du"]
+[ext_resource type="Texture2D" uid="uid://dbfsvs87640yt" path="res://Asset/UI/button/FireDis.png" id="41_oijdm"]
+[ext_resource type="Texture2D" uid="uid://dwgdr2v4hu7y7" path="res://Asset/img/Thing/Chips.png" id="47_ar0mh"]
+[ext_resource type="FontFile" uid="uid://bjou57imk88ov" path="res://Asset/Font/DreamSource/DreamHanSans-W18.ttc" id="47_t4vkp"]
+[ext_resource type="Script" path="res://Script/UI/ChipsUI.gd" id="48_oamp7"]
+[ext_resource type="Texture2D" uid="uid://dp5u5tgi77t3o" path="res://Asset/UI/button/ClubButtonNormal.png" id="49_22ogj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5pjga"]
 shader = ExtResource("3_iuwld")
@@ -329,16 +337,6 @@ button_group = SubResource("ButtonGroup_6br4g")
 texture_normal = ExtResource("8_th8r4")
 texture_pressed = ExtResource("9_7x72q")
 
-[node name="My" type="TextureButton" parent="UI/ToolBar/HBox"]
-custom_minimum_size = Vector2(0, 118)
-layout_mode = 2
-theme = ExtResource("1_aam76")
-toggle_mode = true
-keep_pressed_outside = true
-button_group = SubResource("ButtonGroup_6br4g")
-texture_normal = ExtResource("9_yymeo")
-texture_pressed = ExtResource("15_g8h5d")
-
 [node name="Battle" type="TextureButton" parent="UI/ToolBar/HBox"]
 custom_minimum_size = Vector2(0, 118)
 layout_mode = 2
@@ -348,6 +346,16 @@ keep_pressed_outside = true
 button_group = SubResource("ButtonGroup_6br4g")
 texture_normal = ExtResource("22_2w0dl")
 texture_pressed = ExtResource("23_r6juh")
+
+[node name="My" type="TextureButton" parent="UI/ToolBar/HBox"]
+custom_minimum_size = Vector2(0, 118)
+layout_mode = 2
+theme = ExtResource("1_aam76")
+toggle_mode = true
+keep_pressed_outside = true
+button_group = SubResource("ButtonGroup_6br4g")
+texture_normal = ExtResource("9_yymeo")
+texture_pressed = ExtResource("15_g8h5d")
 
 [node name="Store" type="CanvasLayer" parent="UI"]
 layer = 2
@@ -779,13 +787,13 @@ visible = false
 script = ExtResource("32_veeb2")
 
 [node name="Margin" type="MarginContainer" parent="UI/Battle"]
-visible = false
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.912
 offset_bottom = 0.959839
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_aam76")
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
@@ -793,37 +801,37 @@ theme_override_constants/margin_bottom = 40
 
 [node name="VBox" type="VBoxContainer" parent="UI/Battle/Margin"]
 layout_mode = 2
-theme_override_constants/separation = -154
+theme_override_constants/separation = -58
 alignment = 1
 
 [node name="Back" type="TextureRect" parent="UI/Battle/Margin/VBox"]
 layout_mode = 2
 texture = ExtResource("19_2x3k2")
 
-[node name="EnenyImg" type="TextureRect" parent="UI/Battle/Margin/VBox/Back"]
-custom_minimum_size = Vector2(1024, 1024)
+[node name="VBox" type="VBoxContainer" parent="UI/Battle/Margin/VBox/Back"]
+visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -512.0
-offset_top = -512.0
-offset_right = 512.0
-offset_bottom = 512.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = -45
+alignment = 1
+
+[node name="EnenyImg" type="TextureRect" parent="UI/Battle/Margin/VBox/Back/VBox"]
+custom_minimum_size = Vector2(1024, 1024)
+layout_mode = 2
 texture = ExtResource("32_a1i68")
 
-[node name="VBox" type="VBoxContainer" parent="UI/Battle/Margin/VBox"]
+[node name="VBox" type="VBoxContainer" parent="UI/Battle/Margin/VBox/Back/VBox"]
 layout_mode = 2
 theme_override_constants/separation = -49
 
-[node name="Info" type="CenterContainer" parent="UI/Battle/Margin/VBox/VBox"]
+[node name="Info" type="CenterContainer" parent="UI/Battle/Margin/VBox/Back/VBox/VBox"]
 layout_mode = 2
 
-[node name="Rect" type="NinePatchRect" parent="UI/Battle/Margin/VBox/VBox/Info"]
+[node name="Rect" type="NinePatchRect" parent="UI/Battle/Margin/VBox/Back/VBox/VBox/Info"]
 custom_minimum_size = Vector2(800, 200)
 layout_mode = 2
 texture = ExtResource("34_rwxfs")
@@ -832,7 +840,7 @@ patch_margin_top = 13
 patch_margin_right = 14
 patch_margin_bottom = 14
 
-[node name="Lvel" type="Label" parent="UI/Battle/Margin/VBox/VBox/Info/Rect"]
+[node name="Lvel" type="Label" parent="UI/Battle/Margin/VBox/Back/VBox/VBox/Info/Rect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -852,16 +860,16 @@ text = "地狱之马"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Level" type="CenterContainer" parent="UI/Battle/Margin/VBox/VBox"]
+[node name="Level" type="CenterContainer" parent="UI/Battle/Margin/VBox/Back/VBox/VBox"]
 layout_mode = 2
 
-[node name="Rect" type="TextureRect" parent="UI/Battle/Margin/VBox/VBox/Level"]
+[node name="Rect" type="TextureRect" parent="UI/Battle/Margin/VBox/Back/VBox/VBox/Level"]
 custom_minimum_size = Vector2(520, 108)
 layout_mode = 2
 texture = ExtResource("33_c0hj5")
 stretch_mode = 2
 
-[node name="Lvel" type="Label" parent="UI/Battle/Margin/VBox/VBox/Level/Rect"]
+[node name="Lvel" type="Label" parent="UI/Battle/Margin/VBox/Back/VBox/VBox/Level/Rect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -877,9 +885,37 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
 theme_override_fonts/font = ExtResource("20_2plv4")
 theme_override_font_sizes/font_size = 42
-text = "第一层"
+text = "第 1 层"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BattleUI" parent="UI/Battle/Margin/VBox/Back" instance=ExtResource("36_jdhvg")]
+layout_mode = 1
+offset_left = -500.0
+offset_top = 0.5
+offset_right = 500.0
+offset_bottom = 0.5
+
+[node name="Margin" type="MarginContainer" parent="UI/Battle/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBox2" type="VBoxContainer" parent="UI/Battle/Margin/VBox/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Battle" type="Button" parent="UI/Battle/Margin/VBox/Margin/VBox2"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "战斗"
+
+[node name="Cancel" type="Button" parent="UI/Battle/Margin/VBox/Margin/VBox2"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "返回"
 
 [node name="Home" type="Control" parent="UI/Battle"]
 layout_mode = 3
@@ -927,6 +963,13 @@ texture_normal = ExtResource("38_42m34")
 texture_pressed = ExtResource("39_c0ymp")
 texture_disabled = ExtResource("40_12rqw")
 
+[node name="Battle" type="TextureButton" parent="UI/Battle/Home/Back/Center/Scroll/VBox"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("39_avcy5")
+texture_pressed = ExtResource("40_kqe7r")
+texture_disabled = ExtResource("41_oijdm")
+
 [node name="Garden" type="TextureButton" parent="UI/Battle/Home/Back/Center/Scroll/VBox"]
 layout_mode = 2
 disabled = true
@@ -935,6 +978,7 @@ texture_pressed = ExtResource("37_00pas")
 texture_disabled = ExtResource("41_gn3du")
 
 [node name="Pot" type="Control" parent="UI/Battle"]
+visible = false
 layout_mode = 3
 anchor_right = 1.0
 anchor_bottom = 0.921
@@ -1029,20 +1073,97 @@ libraries = {
 "": SubResource("AnimationLibrary_wvs0x")
 }
 
+[node name="Pointer" type="VBoxContainer" parent="UI"]
+custom_minimum_size = Vector2(280, 0)
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.145
+anchor_right = 0.04
+anchor_bottom = 0.145
+offset_left = -0.200005
+offset_top = 0.599976
+offset_right = 279.8
+offset_bottom = 100.6
+
+[node name="VBox" type="VBoxContainer" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.895
+anchor_right = 0.5
+anchor_bottom = 0.895
+offset_left = -514.0
+offset_top = -24.4
+offset_right = 515.0
+offset_bottom = 25.6
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("48_oamp7")
+
+[node name="HBox" type="HBoxContainer" parent="UI/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 11
+alignment = 1
+
+[node name="Chip" type="TextureRect" parent="UI/VBox/HBox"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("47_ar0mh")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="UI/VBox/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_fonts/font = ExtResource("47_t4vkp")
+theme_override_font_sizes/font_size = 66
+text = "888"
+
+[node name="ProgressBar" type="TextureProgressBar" parent="UI/VBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+rounded = true
+nine_patch_stretch = true
+stretch_margin_left = 16
+stretch_margin_top = 16
+stretch_margin_right = 16
+stretch_margin_bottom = 16
+texture_under = ExtResource("49_22ogj")
+texture_progress = ExtResource("34_rwxfs")
+
+[node name="Label" type="Label" parent="UI/VBox/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_font_sizes/font_size = 19
+text = "距离下一个天堂筹码：58金币。"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="TextureButton" parent="UI/VBox/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -128
 
 [node name="Background" type="TextureRect" parent="Background"]
-custom_minimum_size = Vector2(1920, 1080)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -27.0
 offset_top = -56.0
-offset_right = 2048.0
-offset_bottom = 1056.0
+offset_right = 2810.0
+offset_bottom = 3045.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.841, 1.841)

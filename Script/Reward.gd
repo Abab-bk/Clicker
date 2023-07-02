@@ -4,6 +4,7 @@ const CHEST_NODE := preload("res://Scence/chest.tscn")
 
 @onready var timer: Timer = $Timer
 
+
 func _ready() -> void:
 	timer.wait_time = 1
 	timer.one_shot = true
@@ -19,5 +20,5 @@ func show_a_reward() -> void:
 func done() -> void:
 	if is_connected("done", Callable(self, "done")):
 		disconnect("done", Callable(self, "done"))
-	timer.wait_time = 30
+	timer.wait_time = 60
 	timer.start()

@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvwqyb66un5bg"]
+[gd_scene load_steps=6 format=3 uid="uid://dvwqyb66un5bg"]
 
 [ext_resource type="Script" path="res://Script/UI/ui.gd" id="1_bvumk"]
 [ext_resource type="Texture2D" uid="uid://ck8jp7knyfh2h" path="res://Asset/UI/BlackGround.png" id="2_dsnj0"]
 [ext_resource type="PackedScene" uid="uid://djuoyeu1igube" path="res://Scence/UI/title.tscn" id="3_liddl"]
-[ext_resource type="Texture2D" uid="uid://dq5dpx47ptuqn" path="res://Asset/img/Thing/FlyNormal.png" id="4_2bs5h"]
 [ext_resource type="Theme" uid="uid://c7hfbhu8whrfq" path="res://Asset/Theme/scroll.tres" id="4_7qwtc"]
 [ext_resource type="Script" path="res://Script/Reward.gd" id="5_gir58"]
-[ext_resource type="Texture2D" uid="uid://b55swe34a1f6t" path="res://Asset/img/Thing/FlyPress.png" id="5_ovbqw"]
 
 [node name="UHD" type="CanvasLayer"]
 layer = 128
@@ -63,23 +61,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 color = Color(0, 0, 0, 0.545098)
-
-[node name="Fly" type="TextureButton" parent="."]
-visible = false
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.806
-anchor_right = 0.5
-anchor_bottom = 0.806
-offset_left = -117.0
-offset_top = -120.52
-offset_right = 283.0
-offset_bottom = 279.48
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.6, 0.6)
-texture_normal = ExtResource("4_2bs5h")
-texture_pressed = ExtResource("5_ovbqw")
 
 [node name="RewardAD" type="Button" parent="."]
 visible = false

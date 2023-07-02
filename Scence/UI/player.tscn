@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://48trktddc5dk"]
+
+[ext_resource type="Texture2D" uid="uid://cddboanuo1mr7" path="res://Asset/img/Enemy/Horse.png" id="1_gym5r"]
+[ext_resource type="FontFile" uid="uid://bjou57imk88ov" path="res://Asset/Font/DreamSource/DreamHanSans-W18.ttc" id="2_qf10p"]
+[ext_resource type="Texture2D" uid="uid://dp5u5tgi77t3o" path="res://Asset/UI/button/ClubButtonNormal.png" id="3_48o72"]
+[ext_resource type="Texture2D" uid="uid://c1076r8wpxswr" path="res://Asset/UI/button/ClubButtonPress.png" id="4_abyda"]
+
+[node name="Player" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 103)
+alignment = 1
+
+[node name="Img" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_gym5r")
+expand_mode = 1
+
+[node name="Info" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_fonts/font = ExtResource("2_qf10p")
+theme_override_font_sizes/font_size = 30
+text = "地狱纸马"
+
+[node name="HP" type="TextureProgressBar" parent="Info"]
+custom_minimum_size = Vector2(800, 60)
+layout_mode = 2
+nine_patch_stretch = true
+stretch_margin_left = 16
+stretch_margin_top = 16
+stretch_margin_right = 16
+stretch_margin_bottom = 16
+texture_under = ExtResource("3_48o72")
+texture_progress = ExtResource("4_abyda")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bonmn77c6hpb8"]
+
+[ext_resource type="Script" path="res://Script/Game/heaven.gd" id="1_apa0p"]
+[ext_resource type="Shader" path="res://Scence/Game/starfield.gdshader" id="1_ldvf3"]
+[ext_resource type="Script" path="res://Script/Game/HeavenButton.gd" id="3_1gby8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rc3yu"]
+shader = ExtResource("1_ldvf3")
+shader_parameter/iterations = 13
+shader_parameter/formuparam = 0.541
+shader_parameter/volsteps = 100
+shader_parameter/stepsize = 0.1
+shader_parameter/zoom = 0.8
+shader_parameter/tile = 0.85
+shader_parameter/speed = Vector3(0.491, 3.066, 1)
+shader_parameter/brightness = 0.0015
+shader_parameter/darkmatter = 0.3
+shader_parameter/distfading = 0.73
+shader_parameter/saturation = 0.85
+shader_parameter/colorize = Color(0, 0, 0, 1)
+shader_parameter/iMouse = Vector2(0, 0)
+
+[node name="Heaven" type="Node2D"]
+script = ExtResource("1_apa0p")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+material = SubResource("ShaderMaterial_rc3yu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 145.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="Button" type="Control" parent="."]
+custom_minimum_size = Vector2(1080, 1920)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 1920.0
+script = ExtResource("3_1gby8")

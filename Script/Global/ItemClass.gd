@@ -2,6 +2,8 @@ extends RefCounted
 
 class_name Item_Class
 
+signal update
+
 #var one_item_bonus:Big = Big.new(1)
 #var now_level:float = 1.0:
 #	set(n):
@@ -25,7 +27,10 @@ var desc:String
 var img_path:String
 var cost:Big
 var base_cost:Big
-var bonus_str:String = "0"
+var bonus_str:String = "0":
+	set(n):
+		bonus_str = n
+		update.emit()
 var base_bonus:Big
 var bonus:Big :
 	set(new_value):

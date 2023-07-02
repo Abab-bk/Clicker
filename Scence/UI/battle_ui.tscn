@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://daoqk5pqph7ot"]
+
+[ext_resource type="Script" path="res://Script/UI/battle_ui.gd" id="1_8nb0i"]
+[ext_resource type="PackedScene" uid="uid://b2l3vcl5bd1gi" path="res://Scence/UI/enemy.tscn" id="1_dod37"]
+[ext_resource type="PackedScene" uid="uid://48trktddc5dk" path="res://Scence/UI/player.tscn" id="2_hhmd5"]
+
+[node name="BattleUI" type="Control"]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8nb0i")
+
+[node name="EnemyGroup" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -452.0
+offset_right = 452.0
+offset_bottom = 361.0
+grow_horizontal = 2
+theme_override_constants/separation = 26
+
+[node name="Enemy" parent="EnemyGroup" instance=ExtResource("1_dod37")]
+layout_mode = 2
+
+[node name="PlayerGroup" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -452.0
+offset_top = -361.0
+offset_right = 452.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 26
+
+[node name="Player" parent="PlayerGroup" instance=ExtResource("2_hhmd5")]
+layout_mode = 2

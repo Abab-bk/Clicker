@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjh5eemcb0joj"]
+
+[ext_resource type="Texture2D" uid="uid://dp5u5tgi77t3o" path="res://Asset/UI/button/ClubButtonNormal.png" id="1_56wub"]
+[ext_resource type="Texture2D" uid="uid://dfg0sepippruc" path="res://Asset/Icon/Click.png" id="2_4b00n"]
+[ext_resource type="Script" path="res://Script/UI/effect_pointer.gd" id="2_rkn7w"]
+
+[node name="EffectPointer" type="NinePatchRect"]
+custom_minimum_size = Vector2(280, 100)
+offset_right = 280.0
+offset_bottom = 100.0
+texture = ExtResource("1_56wub")
+patch_margin_left = 14
+patch_margin_top = 14
+patch_margin_right = 14
+patch_margin_bottom = 14
+script = ExtResource("2_rkn7w")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="HBox" type="HBoxContainer" parent="HBox"]
+layout_mode = 2
+theme_override_constants/separation = -14
+
+[node name="Center" type="CenterContainer" parent="HBox/HBox"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="HBox/HBox/Center"]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+texture = ExtResource("2_4b00n")
+stretch_mode = 2
+
+[node name="Multiper" type="Label" parent="HBox/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85098, 0.835294, 0.788235, 1)
+theme_override_font_sizes/font_size = 47
+text = "x5"
+
+[node name="Time" type="Label" parent="HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_font_sizes/font_size = 69
+text = "32s"
+
+[node name="Timer" type="Timer" parent="."]

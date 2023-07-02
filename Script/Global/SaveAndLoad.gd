@@ -34,6 +34,18 @@ func load_save() -> void:
 			for id in orginal_data["skills"]:
 				Global.not_added_skills.append(id)
 	
+	if orginal_data.has("last_ad_time"):
+		Global.last_ad_time = orginal_data["last_ad_time"]
+	if orginal_data.has("current_ad"):
+		Global.current_ad = orginal_data["current_ad"]
+	
+	if orginal_data.has("all_coins"):
+		Global.all_coins.load_form_save(orginal_data["all_coins"])
+	if orginal_data.has("chips"):
+		ChipsManager.chips.load_form_save(orginal_data["chips"])
+	if orginal_data.has("added_money_mult"):
+		Global.added_money_mult.load_form_save(orginal_data["added_money_mult"])
+	
 	if orginal_data.has("first_game"):
 		Global.first_game = orginal_data["first_game"]
 	

@@ -4,6 +4,7 @@ excelexporter.engine-WARNING:~$数据表.xlsx 不是配置表，跳过！
 excelexporter.engine-INFO:导出：E:\Dev\Godot\Clicker\Setting\data\数据表.xlsx:物品表 - Items => E:\Dev\Godot\Clicker\Setting\dist\数据表\ Items.gd
 excelexporter.engine-INFO:导出：E:\Dev\Godot\Clicker\Setting\data\数据表.xlsx:技能表 - Skills => E:\Dev\Godot\Clicker\Setting\dist\数据表\ Skills.gd
 excelexporter.engine-INFO:导出：E:\Dev\Godot\Clicker\Setting\data\数据表.xlsx:事件表 - Events => E:\Dev\Godot\Clicker\Setting\dist\数据表\ Events.gd
+excelexporter.engine-INFO:导出：E:\Dev\Godot\Clicker\Setting\data\数据表.xlsx:技能树-Trees => E:\Dev\Godot\Clicker\Setting\dist\数据表\Trees.gd
 excelexporter.engine-INFO:导出：E:\Dev\Godot\Clicker\Setting\data\数据表.xlsx:事件内容表-EventData => E:\Dev\Godot\Clicker\Setting\dist\数据表\EventData.gd
 excelexporter.engine-INFO:导出：E:\Dev\Godot\Clicker\Setting\data\数据表.xlsx:配方表-Recipe => E:\Dev\Godot\Clicker\Setting\dist\数据表\Recipe.gd
 excelexporter.generators.gds2-INFO:创建setting.gd

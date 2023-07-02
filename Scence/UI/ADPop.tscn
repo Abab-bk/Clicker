@@ -69,7 +69,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Img" type="TextureRect" parent="Popup/VBox/VBox/VBox"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 400)
 layout_mode = 2
 texture = ExtResource("5_wh3k8")

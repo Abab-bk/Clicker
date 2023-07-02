@@ -62,7 +62,7 @@ func start_work() -> void:
 	if all.size() < 3:
 		work = Settings.Recipe.data[60003]
 	else:
-		work = Settings.Recipe.data[randi_range(60001, 60010)]
+		work = Settings.Recipe.data[randi_range(60001, 60029)]
 	
 	var temp = Global.read_effect(work["bonus"])
 	print("尝试应用效果")

@@ -15,6 +15,7 @@ func _ready() -> void:
 	go_home()
 	$Home/Back/Center/Scroll/VBox/Garden.pressed.connect(Callable(self, "change_page").bind(PAGE.GARDEN))
 	$Home/Back/Center/Scroll/VBox/Pot.pressed.connect(Callable(self, "change_page").bind(PAGE.POT))
+	$Home/Back/Center/Scroll/VBox/Battle.pressed.connect(Callable(self, "change_page").bind(PAGE.BATTLE))
 
 func go_home() -> void:
 	change_page(PAGE.HOME)
@@ -25,6 +26,9 @@ func change_page(page) -> void:
 	Home_UI.hide()
 	
 	match page:
+		PAGE.BATTLE:
+			Home_UI.hide()
+			Battle_UI.show()
 		PAGE.HOME:
 			Home_UI.show()
 		PAGE.GARDEN:

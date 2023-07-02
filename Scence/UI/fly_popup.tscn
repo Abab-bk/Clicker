@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://bab3q7v0tj6sr"]
+
+[ext_resource type="Theme" uid="uid://c7hfbhu8whrfq" path="res://Asset/Theme/scroll.tres" id="1_8xqm0"]
+[ext_resource type="Script" path="res://Script/UI/fly_popup.gd" id="2_rh0al"]
+[ext_resource type="Texture2D" uid="uid://bwquosnkwdqtr" path="res://Asset/UI/Panel.png" id="3_ithb3"]
+[ext_resource type="FontFile" uid="uid://rery3p2p3u0s" path="res://Asset/Font/DreamSource/DreamHanSans-W23.ttc" id="4_0cbsi"]
+[ext_resource type="Texture2D" uid="uid://ge7kbmys04w" path="res://Asset/img/Thing/Made.png" id="5_hv7yc"]
+[ext_resource type="FontFile" uid="uid://bjou57imk88ov" path="res://Asset/Font/DreamSource/DreamHanSans-W18.ttc" id="6_lnerl"]
+
+[node name="FlyPopup" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -465.0
+offset_top = -572.0
+offset_right = 465.0
+offset_bottom = 572.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8xqm0")
+script = ExtResource("2_rh0al")
+
+[node name="Popup" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ithb3")
+patch_margin_left = 84
+patch_margin_top = 85
+patch_margin_right = 84
+patch_margin_bottom = 87
+
+[node name="VBox" type="VBoxContainer" parent="Popup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.114
+anchor_top = 0.065
+anchor_right = 0.887
+anchor_bottom = 0.935
+offset_left = 0.285995
+offset_top = 0.349998
+offset_right = -0.187012
+offset_bottom = -0.350037
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="VBox" type="VBoxContainer" parent="Popup/VBox"]
+custom_minimum_size = Vector2(0, 700)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Popup/VBox/VBox"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Popup/VBox/VBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.886275, 0.698039, 1)
+theme_override_fonts/font = ExtResource("4_0cbsi")
+theme_override_font_sizes/font_size = 56
+text = "飞升"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Img" type="TextureRect" parent="Popup/VBox/VBox/VBox"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+texture = ExtResource("5_hv7yc")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="VBox2" type="VBoxContainer" parent="Popup/VBox/VBox"]
+layout_mode = 2
+
+[node name="Desc" type="RichTextLabel" parent="Popup/VBox/VBox/VBox2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.835294, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("6_lnerl")
+theme_override_fonts/bold_font = ExtResource("4_0cbsi")
+theme_override_font_sizes/normal_font_size = 35
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+text = "[center]你已经洞察了世间的一切。要飞升吗？
+飞升后，你所拥有的一切重置为 [b][color=#FFE2B2]0[/color][/b] ，并获得 [b][color=#FFE2B2]{get_chip}[/color][/b] 天堂筹码。(不好意思技能树还没做)
+并且，你的每秒点击金币永久 * 1.1 倍（可叠加）。
+你需要 [b][color=#FFE2B2]{need_coins}[/color][/b] 金币。[/center]"
+
+[node name="Btn" type="VBoxContainer" parent="Popup/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Set1" type="Button" parent="Popup/VBox/Btn"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "确认"
+
+[node name="Set2" type="Button" parent="Popup/VBox/Btn"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "关闭"

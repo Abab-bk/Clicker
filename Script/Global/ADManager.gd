@@ -37,21 +37,31 @@ func adReady() -> void:
 
 func ShowRewardAD(id:String = "57075") -> void:
 	if ad != null:
-		print("点击广告")
-		ad.ShowRewardVideoAd(id)
+		if Global.current_ad <= Global.MAX_AD:
+			ad.ShowRewardVideoAd(id)
+			print("当前AD：" + str(Global.current_ad))
+			Global.current_ad += 1
+			Global.last_ad_time = Global.get_time()
+		else:
+			Uhd.new_message_popup("到达上限", "今日观看次数已经到上限")
 
 func RewardSkip():
 	if ad != null:
+		ad.DisRewardVideoAD()
 		reward_skip.emit()
 
 func RewardClosed():
 	if ad != null:
+		ad.DisRewardVideoAD()
 		reward_closed.emit()
+
 
 func RewardGet():
 	if ad != null:
+		ad.DisRewardVideoAD()
 		reward_get.emit()
 
 func RewardFailed():
 	if ad != null:
+		ad.DisRewardVideoAD()
 		reward_failed.emit()

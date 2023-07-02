@@ -3,6 +3,8 @@ extends Control
 signal change_page_to_other
 signal change_page_to_home
 
+@onready var chip_progress: TextureProgressBar = $UI/VBox/ProgressBar
+@onready var pointers: VBoxContainer = $UI/Pointer
 @onready var timer: Timer = $Timer
 @onready var main_item: Control = $Node2D/Mogu/Control
 @onready var Main_Item_UI: Sprite2D = $Node2D/Mogu
@@ -21,6 +23,7 @@ signal change_page_to_home
 
 @onready var coin_audio: Array = [$Node2D/Mogu/audio1, $Node2D/Mogu/audio2, $Node2D/Mogu/audio3, $Node2D/Mogu/audio4, $Node2D/Mogu/audio5, $Node2D/Mogu/audio6, $Node2D/Mogu/audio7]
 
+const EFFECT_POINTER := preload("res://Scence/UI/effect_pointer.tscn")
 const clicked_icon := preload("res://Scence/clicked_icon.tscn")
 const clicked_icon2 := preload("res://Scence/clicked_icon_2.tscn")
 const item_scence := preload("res://Scence/UI/item.tscn")
@@ -114,6 +117,12 @@ func _ready() -> void:
 	
 	Global.main_ready.emit()
 
+func new_effect_pointer(multiper:int, time:int) -> void:
+	var new_pointer = EFFECT_POINTER.instantiate()
+	new_pointer.multiper = multiper
+	new_pointer.time = time
+	pointers.add_child(new_pointer)
+
 func change_page(page:int) -> void:
 	Main_Item_UI.hide()
 	My_UI.hide()
@@ -162,7 +171,7 @@ func update_ui() -> void:
 	Uhd.update_ui()
 
 func clicked() -> void:
-	Global.make_money(added_money)
+	Global.make_money(Big.new(added_money).multiply(Global.added_money_mult))
 	
 	if randi_range(1,2) == 1:
 		var new_icon = clicked_icon.instantiate()
@@ -173,7 +182,7 @@ func clicked() -> void:
 		new_icon.position = get_global_mouse_position()
 		Uhd.add_child(new_icon)
 	
-	Uhd.new_tip("+" + added_money.toString(), Color.WHITE, get_global_mouse_position())
+	Uhd.new_tip("+" + added_money.toAA(), Color.WHITE, get_global_mouse_position())
 
 func on_click(event:InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed == true:

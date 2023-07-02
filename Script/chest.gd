@@ -26,4 +26,5 @@ func connect_():
 		hide())
 
 func open_info():
-	Uhd.new_ad_pop()
+	Uhd.new_ad_pop(func():pass, "意外产物", "炼金术士工作时的意外产物，要打开看看吗？\
+	（看广告获得奖励）", "AD")

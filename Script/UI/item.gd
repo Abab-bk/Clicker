@@ -12,6 +12,7 @@ func try_to_buy() -> void:
 	update_cost_ui()
 
 func _ready() -> void:
+	Item.update.connect(self.update_cost_ui)
 	$HBox/Center/HBox/Buy.pressed.connect(Callable(self, "try_to_buy"))
 	$HBox/Center/HBox/Info.pressed.connect(Callable(self, "show_info"))
 	Item.check_load()
@@ -29,6 +30,7 @@ func show_info() -> void:
 
 func update_cost_ui() -> void:
 	cost_node.text = Item.cost.toAA()
+	$HBox/HBox/Vbox/VBox/Earn.text = "[color=#FFE2B2]+" + Item.bonus_str + "/s" + "[/color]"
 
 func update_buy_state() -> void:
 	if Global.coins.isLessThan(Item.cost):

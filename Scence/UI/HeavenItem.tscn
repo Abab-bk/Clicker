@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmi2p8c8j5vin"]
+
+[ext_resource type="Texture2D" uid="uid://dp5u5tgi77t3o" path="res://Asset/UI/button/ClubButtonNormal.png" id="1_1ucr1"]
+[ext_resource type="Texture2D" uid="uid://c1076r8wpxswr" path="res://Asset/UI/button/ClubButtonPress.png" id="2_7opqi"]
+[ext_resource type="Script" path="res://Script/UI/HeavenItem.gd" id="3_kcx68"]
+[ext_resource type="Texture2D" uid="uid://deso7sa61845s" path="res://Asset/Icon/SpriteSheet.png" id="3_xb066"]
+
+[node name="HeavenItem" type="TextureButton"]
+custom_minimum_size = Vector2(132, 132)
+offset_right = 80.0
+offset_bottom = 80.0
+texture_normal = ExtResource("1_1ucr1")
+texture_pressed = ExtResource("2_7opqi")
+script = ExtResource("3_kcx68")
+
+[node name="Img" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(65, 63)
+scale = Vector2(6, 6)
+texture = ExtResource("3_xb066")
+hframes = 34
+vframes = 8
+region_enabled = true
+region_rect = Rect2(48, 16, 560, 128)

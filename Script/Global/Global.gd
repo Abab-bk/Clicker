@@ -3,13 +3,18 @@ extends Node
 signal message_pre_yes
 signal money_change
 signal main_ready
+signal chips_change
 
+const MAX_AD:int = 6
 const MAX_BAG_SPACE:int = 20
 const UNKONW_NODE = preload("res://Scence/UI/unkonw.tscn")
 const MAX_LEVEL:int = 20
 const CODES:Array = ["2023617", "程怡然", "旺仔", "炼金术士Clicker", "AcidWallStudio"]
 const MAX_TIME_DISTANCE:int = 172800
-const VER = 7
+const VER = 8
+
+var current_ad:int = 0
+var last_ad_time:int = 0
 
 var pot_bag:Dictionary = {} # {106: 7}
 
@@ -29,21 +34,39 @@ var background_audio = AudioServer.get_bus_index("Master")
 var first_game:bool = true
 
 var main_scence
-
 var min_coins = Big.new(0)
+
+# (10^12) * ((K+1)^3 - K^3) -> K: 已拥有的Chip数量
+# 还需要多少饼干可以获得下一个天堂筹码
+#var coins_needed:Big = Big.new(0)
+# 开立方(N/10^12).向下取整
+#var chips_total:Big = Big.new(0)
+#var needed_total_coins:Big = Big.new(0)
+#var chips:Big = Big.new(0):
+#	set(n):
+#		chips = n
+#		chips_change.emit()
+
 var coins:Big = Big.new(0) :
 	set(new_value):
-#		if new_value.isLessThanOrEqualTo(0):
-#			coins = Big.new(0)
+		if new_value.isLessThanOrEqualTo(0):
+			coins = Big.new(0)
 		coins = new_value
+		all_coins.plus(all_coins.minus(coins))
 		money_change.emit()
+
+var all_coins:Big = Big.new(0):
+	set(n):
+		if n.isLessThanOrEqualTo(0):
+			all_coins = Big.new(0)
 
 var auto_coin:Big = Big.new(0):
 	set(n):
 		auto_coin = n
 		min_coins = Big.new(auto_coin).multiply(60)
 
-var added_money:Big = Big.new(1000000)
+var added_money_mult:Big = Big.new(1)
+var added_money:Big = Big.new(1, 12)
 # {
 #   10001（ID）: Item_Class（对象）
 # }
@@ -58,12 +81,16 @@ var time_distance:int :
 	set(new_value):
 		time_distance = int(Time.get_unix_time_from_system()) - new_value
 		
-		var added_new_coins:Big = Big.new(auto_coin).multiply(time_distance)
-		
 		if time_distance >= MAX_TIME_DISTANCE:
-			make_money(Big.new(auto_coin).multiply(MAX_TIME_DISTANCE))
+			var temp_func:Callable = func():
+				make_money(Big.new(auto_coin).multiply(MAX_TIME_DISTANCE))
+			
+			Uhd.new_ad_pop(temp_func, "双倍奖励", "光看广告，获得挂机双倍奖励", "mult_max")
 		else:
-			make_money(added_new_coins)
+			var temp_func:Callable = func():
+				make_money(Big.new(auto_coin).multiply(time_distance))
+			
+			Uhd.new_ad_pop(temp_func, "双倍奖励", "观看广告，获得挂机双倍奖励", "mult_max")
 
 # =========== 技能相关 ===========
 var target_item_id:int
@@ -85,7 +112,7 @@ func get_bag_size() -> int:
 
 func auto_make_money() -> void:
 	make_money(auto_coin)
-	Uhd.new_tip_toolbar("+" + auto_coin.toString())
+	Uhd.new_tip_toolbar("+" + auto_coin.toAA())
 
 func make_money(value) -> void:
 	coins.plus(value)
@@ -126,6 +153,8 @@ func apply_effect(effect:PackedStringArray) -> void:
 		"add":
 			# 判断该物品是否存在：
 			if not owned_items.has(target_item_id):
+				print(owned_items)
+				print("id ", target_item_id)
 				return
 			# 获取受影响物品的总数
 			item_count = owned_items[target_item_id]["owned"]
@@ -133,6 +162,7 @@ func apply_effect(effect:PackedStringArray) -> void:
 			var target_item:Item_Class = owned_items[target_item_id]
 			# 先判断目标是否有这个效果
 			if not target_item.get(target_effect["Properties"]):
+				print(target_effect)
 				return
 			# 拿到原始效果
 			var origin_pro:Big = target_item.get(target_effect["Properties"]) # -> bonus
@@ -151,13 +181,27 @@ func apply_effect(effect:PackedStringArray) -> void:
 			# plus(单个物品的收益 * 物品数量 - 原来单个收益 * 物品数量)
 			auto_coin.plus(Big.new(new_effect).multiply(item_count).minus(Big.new(origin_pro).multiply(item_count)))
 		"click":
-			added_money = added_money.multiply(target_effect["Multiplier"])
+			var multiplier = target_effect["Multiplier"]
+			if effect[3] == "time":
+				var timer = get_tree().create_timer(int(effect[2]))
+				
+				timer.timeout.connect(Callable(self, "click_timeout").bind(multiplier))
+				main_scence.new_effect_pointer(multiplier, int(effect[2]))
+				
+				added_money = added_money.multiply(multiplier)
+			else:
+				added_money = added_money.multiply(multiplier)
 		"reduce":
 			print("减少钱")
 			coins.minus(int(target_effect["Multiplier"]))
 		"coins":
 			print("增加钱")
 			coins.plus(int(target_effect["Multiplier"]))
+		"nothing":
+			pass
+
+func click_timeout(multiplier) -> void:
+	added_money.divide(multiplier)
 
 func read_effect(effect:String) -> PackedStringArray:
 	var reg := RegEx.new()
@@ -184,9 +228,26 @@ func set_audio_size(value:float) -> void:
 func _ready() -> void:
 	money_change.connect(Callable(self, "update_coins_text"))
 	money_change.connect(Callable(self, "change"))
+	
 	load_save()
 	
+	# 开立方(N/10^12).向下取整
+#	chips_total = Big.new(all_coins).divide(Big.new(1, 10)).squareRoot().roundDown()
+#	needed_total_coins = Big.new(1, 12).multiply(Big.new(chips_total).power(3))
+	
 	min_coins = Big.new(auto_coin).multiply(60)
+	
+	if added_money.isLessThanOrEqualTo(0):
+		added_money = Big.new(1)
+	
+	if added_money_mult.isLargerThanOrEqualTo(0):
+		added_money_mult = Big.new(1)
+	
+	# 创建一个 HTTP 请求节点并连接其完成信号。
+	last_ad_time = await BjTime.get_time()
+	
+	if await BjTime.over_a_day(last_ad_time):
+		current_ad = 0
 
 func update_coins_text() -> void:
 	coins_text = coins.toAA()
@@ -211,8 +272,13 @@ func save() -> bool:
 		"auto_coin": auto_coin.get_save_data(),
 		"added_money": added_money.get_save_data(),
 		"time": Time.get_unix_time_from_system(),
+		"all_coins": all_coins.get_save_data(),
+		"chips": ChipsManager.chips.get_save_data(),
+		"added_money_mult": added_money_mult.get_save_data(),
 		"level": level,
 		"used_codes": used_codes,
+		"last_ad_time": last_ad_time,
+		"current_ad": current_ad,
 		"ver": VER,
 		"first_game": first_game,
 		"pot_bag": pot_bag,

@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal Fly_pressed
+
 @onready var coins = $UI/Black/VBox/Title
 @onready var bonus = $UI/Black/VBox/Bonus
 
@@ -14,24 +16,33 @@ func _ready() -> void:
 	$ColorRect.hide()
 	Global.money_change.connect(Callable(self, "update_ui"))
 	$RewardAD.pressed.connect(Callable(self, "try_reward_ad"))
-	$Fly.pressed.connect(Callable(self, "fly"))
+	Fly_pressed.connect(Callable(self, "fly"))
 	update_ui()
-	
-	if Global.first_game:
-		var new_pop = load("res://Scence/UI/PrivacyPopup.tscn").instantiate()
-		show_color()
-		add_child(new_pop)
 
 func fly() -> void:
-	pass
+	print("yyyy")
+	show_color()
+	var n = load("res://Scence/UI/fly_popup.tscn")
+	var new_pop = n.instantiate()
+	add_child(new_pop)
 
 func try_reward_ad() -> void:
 	if AdManager.is_android():
 		AdManager.ShowRewardAD("57075")
 
-func new_ad_pop() -> void:
+func new_ad_pop(if_not:Callable = func():pass, title:String = "", desc:String = "", mode:String = "") -> void:
 	var n = load("res://Scence/UI/ADPop.tscn")
 	var new_pop = n.instantiate()
+	
+	new_pop.if_not = if_not
+	
+	if title != "":
+		new_pop.title = title
+	if desc != "":
+		new_pop.desc = desc
+	if mode != "":
+		new_pop.mode = mode
+	
 	add_child(new_pop)
 
 func new_message_popup(Title:String, Desc:String, img:String = "") -> void:
