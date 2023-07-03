@@ -78,7 +78,6 @@ func _ready() -> void:
 		items.call_deferred("add_child", new_item_node)
 	
 	# TODO: 按照可以被添加的升级数组添加
-	print(Global.not_added_skills)
 	if not Global.not_added_skills.is_empty():
 		for i in Settings.Skills.data:
 			if Global.not_added_skills.has(i):
@@ -96,7 +95,6 @@ func _ready() -> void:
 				new_skill_node.Skill.update_info(Settings.Skills.data[i])
 			#	skills.add_child(new_skill_node)
 				skills.call_deferred("add_child", new_skill_node)
-			
 	else:
 		for i in Settings.Skills.data:
 			if Settings.Skills.data[i]["last"] == 0:

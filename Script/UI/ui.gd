@@ -13,6 +13,7 @@ var format_string:String
 var coin_unit:String = ""
 
 func _ready() -> void:
+	show()
 	$ColorRect.hide()
 	Global.money_change.connect(Callable(self, "update_ui"))
 	$RewardAD.pressed.connect(Callable(self, "try_reward_ad"))

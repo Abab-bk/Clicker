@@ -2,6 +2,7 @@ extends Node
 
 signal chipsChange
 signal workChips
+signal flyOK
 
 var prestige:Big = Big.new(0)
 # 还需要多少饼干可以获得下一个天堂筹码
@@ -24,10 +25,12 @@ func get_chips() -> void:
 
 func yes_fly() -> void:
 	get_tree().paused = true
+	
 	Global.owned_items_dic = {}
 	Global.owned_items = {}
 	Global.owned_skills = {}
 	Global.owned_skills_dic = {}
+	
 	Global.coins = Big.new(0)
 	Global.added_money = Big.new(1)
 	Global.auto_coin = Big.new(1)
@@ -38,8 +41,17 @@ func yes_fly() -> void:
 	Global.skill_level_list = []
 	Global.level_list = []
 	Global.not_added_skills = []
+	Global.pot_bag = {}
+	Global.not_added_skills = []
+	
 	Global.added_money_mult.plus(0.1)
-	get_tree().paused = false
+	
 	Global.save()
 	Uhd.hide_color()
 	workChips.emit()
+	flyOK.emit()
+	get_tree().paused = false
+	SaveAndLoad.load_save()
+	
+	get_tree().change_scene_to_packed(load("res://Scence/Game/heaven.tscn"))
+	

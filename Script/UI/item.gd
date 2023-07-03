@@ -13,6 +13,10 @@ func try_to_buy() -> void:
 
 func _ready() -> void:
 	Item.update.connect(self.update_cost_ui)
+	ChipsManager.flyOK.connect(self.update_self)
+	Item.owned_change.connect(func():
+		own_node.text = str(Item.owned)
+		)
 	$HBox/Center/HBox/Buy.pressed.connect(Callable(self, "try_to_buy"))
 	$HBox/Center/HBox/Info.pressed.connect(Callable(self, "show_info"))
 	Item.check_load()
@@ -37,7 +41,6 @@ func update_buy_state() -> void:
 		buy_btn.disabled = true
 
 func update_self() -> void:
-	own_node.text = str(Item.owned)
 	cost_node.text = Item.cost.toString()
 	Item.bonus_str = Item.bonus.toAA()
 	
@@ -45,3 +48,5 @@ func update_self() -> void:
 	$HBox/HBox/Vbox/VBox/Earn.text = "[color=#FFE2B2]+" + Item.bonus_str + "/s" + "[/color]"
 	$HBox/HBox/Vbox/VBox/Desc.text = Item.desc
 	$HBox/HBox/Container/Icon.texture = load("res://Asset/img/Character/" + Item.img_path)
+	
+	own_node.text = str(Item.owned)

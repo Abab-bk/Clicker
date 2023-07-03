@@ -24,6 +24,19 @@ func check_load() -> void:
 		load_form_save(Global.owned_skills_dic[id])
 		Global.owned_skills[id] = self
 
+func set_to_default() -> void:
+	
+	var Info = Settings.Skills.data[id]
+	owned = false
+	id = Info["id"]
+	the_name = Info["name"]
+	desc = Info["desc"]
+	img_path = Info["img"]
+	cost = Big.new(Info["cost"][0], Info["cost"][1])
+	effect = Info["effect"]
+	cost_str = cost.toAA()
+	Global.skill_level_list.append(cost)
+
 func get_save_data() -> Dictionary:
 	var new_dic:Dictionary = {
 		"cost": cost.get_save_data(),

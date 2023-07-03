@@ -15,7 +15,7 @@ func _ready() -> void:
 func show_a_reward() -> void:
 	var n = CHEST_NODE.instantiate()
 	n.done.connect(Callable(self, "done"))
-	add_child(n)
+	Uhd.add_child(n)
 
 func done() -> void:
 	if is_connected("done", Callable(self, "done")):

@@ -9,7 +9,7 @@ const MAX_AD:int = 6
 const MAX_BAG_SPACE:int = 20
 const UNKONW_NODE = preload("res://Scence/UI/unkonw.tscn")
 const MAX_LEVEL:int = 20
-const CODES:Array = ["2023617", "程怡然", "旺仔", "炼金术士Clicker", "AcidWallStudio"]
+const CODES:Array = ["2023617", "旺仔", "炼金术士Clicker", "AcidWallStudio"]
 const MAX_TIME_DISTANCE:int = 172800
 const VER = 8
 
@@ -19,8 +19,8 @@ var last_ad_time:int = 0
 var pot_bag:Dictionary = {} # {106: 7}
 
 var used_codes:Array = []
-var unknow:NinePatchRect
-var unknow_skill:NinePatchRect
+var unknow:NinePatchRect = null
+var unknow_skill:NinePatchRect = null
 
 var level_list:Array = []
 var level:int = 1
@@ -66,7 +66,7 @@ var auto_coin:Big = Big.new(0):
 		min_coins = Big.new(auto_coin).multiply(60)
 
 var added_money_mult:Big = Big.new(1)
-var added_money:Big = Big.new(1)
+var added_money:Big = Big.new(1, 12)
 # {
 #   10001（ID）: Item_Class（对象）
 # }
@@ -268,6 +268,7 @@ func save() -> bool:
 	for i in owned_skills.keys():
 		new_skill_save_dic[i] = owned_skills[i].get_save_data()
 	
+	print(new_save_dic, new_skill_save_dic)
 	var save_dic = {
 		"skills": new_skill_save_dic,
 		"items": new_save_dic,
@@ -288,6 +289,7 @@ func save() -> bool:
 		"not_added_skills": not_added_skills
 	}
 	print("save")
+	
 	SaveAndLoad.save(save_dic)
 	return true
 
@@ -317,8 +319,9 @@ func change() -> void:
 	start()
 
 func remove_unknow_node() -> void:
-	if unknow:
+	if is_instance_valid(unknow):
 		unknow.queue_free()
+		unknow = null
 
 func add_unknow_node() -> void:
 	var new_node = UNKONW_NODE.instantiate()

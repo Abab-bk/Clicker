@@ -3,6 +3,7 @@ extends RefCounted
 class_name Item_Class
 
 signal update
+signal owned_change
 
 #var one_item_bonus:Big = Big.new(1)
 #var now_level:float = 1.0:
@@ -52,6 +53,11 @@ var owned:int = 0 :
 		var temp1:Big = Big.new(1.15).power(owned)
 		
 		cost = Big.new(Big.new(base_cost).multiply(temp1))
+		
+		owned_change.emit()
+
+func _init() -> void:
+	ChipsManager.flyOK.connect(self.set_to_default)
 
 func update_info(Info:Dictionary) -> void:
 	id = Info["id"]
@@ -63,6 +69,19 @@ func update_info(Info:Dictionary) -> void:
 	bonus = Big.new(Info["bonus"][0], Info["bonus"][1])
 	base_bonus = Big.new(Info["bonus"][0], Info["bonus"][1])
 	
+	Global.level_list.append(cost)
+
+func set_to_default() -> void:
+	var Info = Settings.Items.data[id]
+	owned = 0
+	id = Info["id"]
+	the_name = Info["name"]
+	desc = Info["desc"]
+	img_path = Info["img"]
+	cost = Big.new(Info["cost"][0], Info["cost"][1])
+	base_cost = Big.new(Info["cost"][0], Info["cost"][1])
+	bonus = Big.new(Info["bonus"][0], Info["bonus"][1])
+	base_bonus = Big.new(Info["bonus"][0], Info["bonus"][1])
 	Global.level_list.append(cost)
 
 func check_load() -> void:
