@@ -66,7 +66,7 @@ var auto_coin:Big = Big.new(0):
 		min_coins = Big.new(auto_coin).multiply(60)
 
 var added_money_mult:Big = Big.new(1)
-var added_money:Big = Big.new(1, 12)
+var added_money:Big = Big.new(1)
 # {
 #   10001（ID）: Item_Class（对象）
 # }
@@ -237,10 +237,13 @@ func _ready() -> void:
 	
 	min_coins = Big.new(auto_coin).multiply(60)
 	
+	if auto_coin.isLessThanOrEqualTo(0):
+		auto_coin = Big.new(1)
+	
 	if added_money.isLessThanOrEqualTo(0):
 		added_money = Big.new(1)
 	
-	if added_money_mult.isLargerThanOrEqualTo(0):
+	if added_money_mult.isLessThanOrEqualTo(0):
 		added_money_mult = Big.new(1)
 	
 	# 创建一个 HTTP 请求节点并连接其完成信号。

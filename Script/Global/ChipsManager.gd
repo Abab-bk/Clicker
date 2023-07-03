@@ -30,7 +30,7 @@ func yes_fly() -> void:
 	Global.owned_skills_dic = {}
 	Global.coins = Big.new(0)
 	Global.added_money = Big.new(1)
-	Global.auto_coin = Big.new(0)
+	Global.auto_coin = Big.new(1)
 	Global.all_coins = Big.new(0)
 	Global.min_coins = Big.new(0)
 	Global.level = 1
