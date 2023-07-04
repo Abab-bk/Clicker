@@ -1,5 +1,6 @@
 extends RefCounted
 
+## 所有Item的类，包含Item的数据。
 class_name Item_Class
 
 signal update

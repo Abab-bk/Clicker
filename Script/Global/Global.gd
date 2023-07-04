@@ -1,33 +1,58 @@
 extends Node
 
+## Global：几乎有全局的所有数据
+
+## 如果消息框被确认
 signal message_pre_yes
+## 金钱改变时发出
 signal money_change
+## 主场景准备好时发出
 signal main_ready
+## 天堂筹码改变时发出，不确定用不用，好像已经迁移到ChipsManager
 signal chips_change
 
+## 每日最大观看广告次数
 const MAX_AD:int = 6
+## 背包最大空间
 const MAX_BAG_SPACE:int = 20
+## 未知物品节点（一切等待伟大的炼金术士探索）
 const UNKONW_NODE = preload("res://Scence/UI/unkonw.tscn")
+## 最多有多少个物品
 const MAX_LEVEL:int = 20
+## 兑换码
 const CODES:Array = ["2023617", "旺仔", "炼金术士Clicker", "AcidWallStudio"]
+## 最大挂机时间
 const MAX_TIME_DISTANCE:int = 172800
+## 内部版本号
 const VER = 8
 
+## 当前观看广告次数
 var current_ad:int = 0
+## 上一次观看广告时间：20230704
 var last_ad_time:int = 0
 
-var pot_bag:Dictionary = {} # {106: 7}
+## 背包内含有的数据
+var pot_bag:Dictionary = {} # {106: 7} -> id： 数量
 
+## 已经使用过的兑换码
 var used_codes:Array = []
+## 未知物品节点
 var unknow:NinePatchRect = null
+## 位置技能节点
 var unknow_skill:NinePatchRect = null
 
+## 已经解锁的物品（显示，不一定购买）
 var level_list:Array = []
+## 当前解锁到哪里
 var level:int = 1
+## 同上，不过并没有使用，因为各种原因没写好
 var skill_level_list:Array = []
 var skill_level:int = 1
+## 物品商店的父节点
 var items:VBoxContainer
+## 技能商店的父节点
 var skills:VBoxContainer
+## 忘了
 var not_added_skills:Array = []
 
 var background_audio = AudioServer.get_bus_index("Master")
@@ -47,6 +72,7 @@ var min_coins = Big.new(0)
 #		chips = n
 #		chips_change.emit()
 
+## 金币数量
 var coins:Big = Big.new(0) :
 	set(new_value):
 		if new_value.isLessThanOrEqualTo(0):
@@ -55,28 +81,37 @@ var coins:Big = Big.new(0) :
 		all_coins.plus(all_coins.minus(coins))
 		money_change.emit()
 
+## 获得的所有金币数量，没写好
 var all_coins:Big = Big.new(0):
 	set(n):
 		if n.isLessThanOrEqualTo(0):
 			all_coins = Big.new(0)
 
+## 每秒自动加金币的数量
 var auto_coin:Big = Big.new(0):
 	set(n):
 		auto_coin = n
 		min_coins = Big.new(auto_coin).multiply(60)
 
+## 点击添加金币的倍数
 var added_money_mult:Big = Big.new(1)
+## 点击添加的金币
 var added_money:Big = Big.new(1, 12)
+
 # {
 #   10001（ID）: Item_Class（对象）
 # }
 var owned_items:Dictionary = {}
+## 已购买的物品，基于数据的，保存存档用
 var owned_items_dic:Dictionary = {}
+## 同上
 var owned_skills:Dictionary = {}
 var owned_skills_dic:Dictionary = {}
 
+## 金币文本，好像是因为toAA()比较慢写的，但是有没有用不知道
 var coins_text:String = coins.toAA()
 
+## 挂机时间，单位：秒
 var time_distance:int :
 	set(new_value):
 		time_distance = int(Time.get_unix_time_from_system()) - new_value
@@ -93,7 +128,9 @@ var time_distance:int :
 			Uhd.new_ad_pop(temp_func, "双倍奖励", "观看广告，获得挂机双倍奖励", "mult_max")
 
 # =========== 技能相关 ===========
+## 目标物品ID
 var target_item_id:int
+## 物品数量
 var item_count:int
 # 目标效果影响的属性
 var target_effect:Dictionary = {
@@ -110,14 +147,17 @@ func get_bag_size() -> int:
 		temp += Global.pot_bag[i]
 	return temp
 
+## 自动加钱
 func auto_make_money() -> void:
 	make_money(auto_coin)
 	Uhd.new_tip_toolbar("+" + auto_coin.toAA())
 
+## 加钱
 func make_money(value) -> void:
 	coins.plus(value)
 	money_change.emit()
 
+## 花钱
 func spent_money(value) -> void:
 	coins.minus(value)
 	money_change.emit()
@@ -125,6 +165,7 @@ func spent_money(value) -> void:
 func get_item_by_id(id) -> Array:
 	return owned_items[id]
 
+## 重新计算升级收益
 func rework_skill() -> void:
 	print("重新计算收益")
 	# 先恢复原始收益
@@ -138,6 +179,7 @@ func rework_skill() -> void:
 		for effect in Settings.Skills.data[id]["effect"]:
 			Global.apply_effect(Global.read_effect(effect))
 
+## 应用升级效果
 func apply_effect(effect:PackedStringArray) -> void:
 	# ["add[10001][bonus][efficiency][2.0]", "add", "10001", "bonus", "efficiency", "2.0"]
 	# ["click[10001][bonus][efficiency][2.0]", "click", "10001", "bonus", "efficiency", "2.0"]
@@ -200,15 +242,18 @@ func apply_effect(effect:PackedStringArray) -> void:
 		"nothing":
 			pass
 
+## 点击金币除以XX，主要是有增加点击金币倍数的效果（炼金获得），但是效果是限时的
 func click_timeout(multiplier) -> void:
 	added_money.divide(multiplier)
 
+## 读取效果文本，effect是正则
 func read_effect(effect:String) -> PackedStringArray:
 	var reg := RegEx.new()
 	reg.compile("^(\\w+)\\[(\\d+)\\]\\[(\\w+)\\]\\[(\\w+)\\]\\[(\\d+(?:\\.\\d+)?)\\]$")
 	var result := reg.search(effect).strings
 	return result
 
+## 如果点击确认兑换码
 func yes_gifts(code:String) -> void:
 	if code in used_codes:
 		Uhd.new_message_popup("兑换结果", "此兑换码已经被使用了...")
@@ -219,9 +264,11 @@ func yes_gifts(code:String) -> void:
 	else:
 		Uhd.new_message_popup("兑换结果", "礼包码不存在..")
 
+## 兑换码正确
 func get_gifts(number:Big) -> void:
 	make_money(number)
 
+## 设置声音大小
 func set_audio_size(value:float) -> void:
 	AudioServer.set_bus_volume_db(background_audio, linear_to_db(value))
 
@@ -229,6 +276,7 @@ func _ready() -> void:
 	money_change.connect(Callable(self, "update_coins_text"))
 	money_change.connect(Callable(self, "change"))
 	
+	## 读取存档
 	load_save()
 	
 	# 开立方(N/10^12).向下取整
@@ -237,6 +285,7 @@ func _ready() -> void:
 	
 	min_coins = Big.new(auto_coin).multiply(60)
 	
+	## 防止游戏无法进行
 	if auto_coin.isLessThanOrEqualTo(0):
 		auto_coin = Big.new(1)
 	
@@ -246,19 +295,23 @@ func _ready() -> void:
 	if added_money_mult.isLessThanOrEqualTo(0):
 		added_money_mult = Big.new(1)
 	
-	# 创建一个 HTTP 请求节点并连接其完成信号。
+	## 修改最后看广告的时间
 	last_ad_time = await BjTime.get_time()
 	
+	## 如果已经过了一天，次数清零
 	if await BjTime.over_a_day(last_ad_time):
 		current_ad = 0
 
+## 修改金币文本
 func update_coins_text() -> void:
 	coins_text = coins.toAA()
 
+## 读档
 func load_save() -> void:
 	SaveAndLoad.load_save()
 	set_audio_size(5.0)
 
+## 存档
 func save() -> bool:
 	var new_save_dic:Dictionary = {}
 	for i in owned_items.keys():
@@ -293,6 +346,7 @@ func save() -> bool:
 	SaveAndLoad.save(save_dic)
 	return true
 
+## 监听退出游戏并存档
 func _notification(what):
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		if save():
@@ -302,6 +356,7 @@ func _notification(what):
 		if save():
 			get_tree().quit()
 
+## 
 func change() -> void:
 	var temp:Array = []
 	
@@ -318,16 +373,19 @@ func change() -> void:
 	
 	start()
 
+## 移除未知节点
 func remove_unknow_node() -> void:
 	if is_instance_valid(unknow):
 		unknow.queue_free()
 		unknow = null
 
+## 添加未知节点
 func add_unknow_node() -> void:
 	var new_node = UNKONW_NODE.instantiate()
 	items.add_child(new_node)
 	unknow = new_node
 
+## 开始修改未知节点
 func start():
 	remove_unknow_node()
 	

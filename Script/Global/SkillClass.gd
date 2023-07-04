@@ -1,5 +1,6 @@
 extends Node
 
+## 所有升级的类，包含升级的数据。
 class_name Skill_Class
 
 signal buyed
@@ -58,13 +59,13 @@ func update_info(Info:Dictionary) -> void:
 	cost_str = cost.toAA()
 	Global.skill_level_list.append(cost)
 
+## 按下购买按钮触发的函数
 func try_to_buy(mouse_pos:Vector2) -> bool:
 	if Global.coins.isLessThan(cost):
 		Uhd.new_tip("金币不足", Color.RED, mouse_pos)
 		Global.save()
 		return false
 	else:
-		# 先判断有没有目标物品
 		Uhd.new_tip("-" + cost_str, Color.WHITE, mouse_pos)
 		Global.spent_money(cost)
 		buyed.emit(id)

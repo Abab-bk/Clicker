@@ -1,7 +1,10 @@
 extends Node
 
+## 天堂筹码改变时发出
 signal chipsChange
+## 忘了，好像没用了
 signal workChips
+## 飞升完毕发出
 signal flyOK
 
 var prestige:Big = Big.new(0)

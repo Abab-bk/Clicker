@@ -23,13 +23,19 @@ signal change_page_to_home
 
 @onready var coin_audio: Array = [$Node2D/Mogu/audio1, $Node2D/Mogu/audio2, $Node2D/Mogu/audio3, $Node2D/Mogu/audio4, $Node2D/Mogu/audio5, $Node2D/Mogu/audio6, $Node2D/Mogu/audio7]
 
+## 限时效果治时期
 const EFFECT_POINTER := preload("res://Scence/UI/effect_pointer.tscn")
+## 点击时弹出的物品
 const clicked_icon := preload("res://Scence/clicked_icon.tscn")
 const clicked_icon2 := preload("res://Scence/clicked_icon_2.tscn")
+## 物品节点
 const item_scence := preload("res://Scence/UI/item.tscn")
+## 升级节点
 const skill_scence := preload("res://Scence/UI/Skill.tscn")
+## _ready后会同步为Global的同变量，Big类都是引用传递
 var added_money:Big = Big.new(100)
 
+## 页面枚举
 enum PAGE {
 	HOME,
 	CHART,
@@ -43,6 +49,7 @@ enum PAGE {
 #func _process(delta: float) -> void:
 #	Store_Panel.custom_minimum_size.y = (ProjectSettings.get("display/window/size/viewport_height") * 0.73)
 #
+## 当购买一个升级，添加下一个对应升级
 func add_next_skill(id:int) -> void:
 	if Settings.Skills.data.has(id + 1):
 		if Settings.Skills.data[id + 1]["last"] != 0:

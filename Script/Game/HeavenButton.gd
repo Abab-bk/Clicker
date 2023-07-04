@@ -7,7 +7,7 @@ extends Control
 #var root:Node
 
 func _ready() -> void:
-	
+	pass
 #	rebuild()
 
 #func rebuild() -> void:

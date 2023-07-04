@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bhxk4wsnsy0qn"]
+[gd_scene load_steps=68 format=3 uid="uid://bhxk4wsnsy0qn"]
 
 [ext_resource type="Theme" uid="uid://c7hfbhu8whrfq" path="res://Asset/Theme/scroll.tres" id="1_aam76"]
 [ext_resource type="Script" path="res://Script/Game/main.gd" id="1_upif0"]
@@ -36,12 +36,11 @@
 [ext_resource type="Texture2D" uid="uid://cddboanuo1mr7" path="res://Asset/img/Enemy/Horse.png" id="32_a1i68"]
 [ext_resource type="Script" path="res://Script/UI/Battle.gd" id="32_veeb2"]
 [ext_resource type="Texture2D" uid="uid://c04ssvd657qo5" path="res://Asset/UI/TitleBar.png" id="33_c0hj5"]
+[ext_resource type="Script" path="res://Script/Game/Battle.gd" id="33_setav"]
 [ext_resource type="Texture2D" uid="uid://c1076r8wpxswr" path="res://Asset/UI/button/ClubButtonPress.png" id="34_rwxfs"]
 [ext_resource type="Texture2D" uid="uid://tf5resvong6o" path="res://Asset/UI/button/GradenNormal.png" id="36_fhcnu"]
-[ext_resource type="PackedScene" uid="uid://daoqk5pqph7ot" path="res://Scence/UI/battle_ui.tscn" id="36_jdhvg"]
 [ext_resource type="Texture2D" uid="uid://okh136q6am4h" path="res://Asset/UI/button/GradenPress.png" id="37_00pas"]
 [ext_resource type="Texture2D" uid="uid://celobm3cmaye5" path="res://Asset/UI/button/PotPressNormal.png" id="38_42m34"]
-[ext_resource type="PackedScene" uid="uid://b836lfj4skpb6" path="res://Scence/UI/aitem.tscn" id="38_eu8w3"]
 [ext_resource type="Script" path="res://Script/Pot.gd" id="38_l2s0c"]
 [ext_resource type="Texture2D" uid="uid://prjhoae6p3cu" path="res://Asset/UI/button/FireNormal.png" id="39_avcy5"]
 [ext_resource type="Texture2D" uid="uid://ca3ndeywbytn6" path="res://Asset/UI/button/PotPress.png" id="39_c0ymp"]
@@ -783,7 +782,6 @@ theme_override_font_sizes/font_size = 47
 text = "Acid Wall Studio"
 
 [node name="Battle" type="CanvasLayer" parent="UI"]
-visible = false
 script = ExtResource("32_veeb2")
 
 [node name="Margin" type="MarginContainer" parent="UI/Battle"]
@@ -798,6 +796,7 @@ theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
+script = ExtResource("33_setav")
 
 [node name="VBox" type="VBoxContainer" parent="UI/Battle/Margin"]
 layout_mode = 2
@@ -809,20 +808,38 @@ layout_mode = 2
 texture = ExtResource("19_2x3k2")
 
 [node name="VBox" type="VBoxContainer" parent="UI/Battle/Margin/VBox/Back"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = -45
+theme_override_constants/separation = 35
 alignment = 1
 
-[node name="EnenyImg" type="TextureRect" parent="UI/Battle/Margin/VBox/Back/VBox"]
+[node name="Enemy" type="VBoxContainer" parent="UI/Battle/Margin/VBox/Back/VBox"]
+layout_mode = 2
+theme_override_constants/separation = -57
+
+[node name="EnenyImg" type="TextureRect" parent="UI/Battle/Margin/VBox/Back/VBox/Enemy"]
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 texture = ExtResource("32_a1i68")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Battle/Margin/VBox/Back/VBox/Enemy"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="Health" type="TextureProgressBar" parent="UI/Battle/Margin/VBox/Back/VBox/Enemy/MarginContainer"]
+layout_mode = 2
+nine_patch_stretch = true
+stretch_margin_left = 16
+stretch_margin_top = 16
+stretch_margin_right = 16
+stretch_margin_bottom = 16
+texture_under = ExtResource("49_22ogj")
+texture_progress = ExtResource("34_rwxfs")
 
 [node name="VBox" type="VBoxContainer" parent="UI/Battle/Margin/VBox/Back/VBox"]
 layout_mode = 2
@@ -840,7 +857,7 @@ patch_margin_top = 13
 patch_margin_right = 14
 patch_margin_bottom = 14
 
-[node name="Lvel" type="Label" parent="UI/Battle/Margin/VBox/Back/VBox/VBox/Info/Rect"]
+[node name="EnemyName" type="Label" parent="UI/Battle/Margin/VBox/Back/VBox/VBox/Info/Rect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -869,7 +886,7 @@ layout_mode = 2
 texture = ExtResource("33_c0hj5")
 stretch_mode = 2
 
-[node name="Lvel" type="Label" parent="UI/Battle/Margin/VBox/Back/VBox/VBox/Level/Rect"]
+[node name="Level" type="Label" parent="UI/Battle/Margin/VBox/Back/VBox/VBox/Level/Rect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -889,35 +906,19 @@ text = "第 1 层"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BattleUI" parent="UI/Battle/Margin/VBox/Back" instance=ExtResource("36_jdhvg")]
-layout_mode = 1
-offset_left = -500.0
-offset_top = 0.5
-offset_right = 500.0
-offset_bottom = 0.5
-
 [node name="Margin" type="MarginContainer" parent="UI/Battle/Margin/VBox"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="VBox2" type="VBoxContainer" parent="UI/Battle/Margin/VBox/Margin"]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="Battle" type="Button" parent="UI/Battle/Margin/VBox/Margin/VBox2"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme_override_font_sizes/font_size = 46
-text = "战斗"
-
-[node name="Cancel" type="Button" parent="UI/Battle/Margin/VBox/Margin/VBox2"]
+[node name="Cancel" type="Button" parent="UI/Battle/Margin/VBox/Margin"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 46
 text = "返回"
 
 [node name="Home" type="Control" parent="UI/Battle"]
+visible = false
 layout_mode = 3
 anchor_right = 1.0
 anchor_bottom = 0.9
@@ -957,6 +958,12 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 23
 
+[node name="Garden" type="TextureButton" parent="UI/Battle/Home/Back/Center/Scroll/VBox"]
+layout_mode = 2
+texture_normal = ExtResource("36_fhcnu")
+texture_pressed = ExtResource("37_00pas")
+texture_disabled = ExtResource("41_gn3du")
+
 [node name="Pot" type="TextureButton" parent="UI/Battle/Home/Back/Center/Scroll/VBox"]
 layout_mode = 2
 texture_normal = ExtResource("38_42m34")
@@ -969,13 +976,6 @@ disabled = true
 texture_normal = ExtResource("39_avcy5")
 texture_pressed = ExtResource("40_kqe7r")
 texture_disabled = ExtResource("41_oijdm")
-
-[node name="Garden" type="TextureButton" parent="UI/Battle/Home/Back/Center/Scroll/VBox"]
-layout_mode = 2
-disabled = true
-texture_normal = ExtResource("36_fhcnu")
-texture_pressed = ExtResource("37_00pas")
-texture_disabled = ExtResource("41_gn3du")
 
 [node name="Pot" type="Control" parent="UI/Battle"]
 visible = false
@@ -1036,21 +1036,6 @@ layout_mode = 2
 theme_override_constants/h_separation = 40
 theme_override_constants/v_separation = 30
 columns = 4
-
-[node name="Item" parent="UI/Battle/Pot/Back/Center/VBox/Margin/VBox/Scroll/Grid" instance=ExtResource("38_eu8w3")]
-layout_mode = 2
-
-[node name="Item2" parent="UI/Battle/Pot/Back/Center/VBox/Margin/VBox/Scroll/Grid" instance=ExtResource("38_eu8w3")]
-layout_mode = 2
-
-[node name="Item3" parent="UI/Battle/Pot/Back/Center/VBox/Margin/VBox/Scroll/Grid" instance=ExtResource("38_eu8w3")]
-layout_mode = 2
-
-[node name="Item4" parent="UI/Battle/Pot/Back/Center/VBox/Margin/VBox/Scroll/Grid" instance=ExtResource("38_eu8w3")]
-layout_mode = 2
-
-[node name="Item5" parent="UI/Battle/Pot/Back/Center/VBox/Margin/VBox/Scroll/Grid" instance=ExtResource("38_eu8w3")]
-layout_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="UI/Battle/Pot/Back/Center/VBox/Margin/VBox"]
 layout_mode = 2
@@ -1162,8 +1147,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -27.0
 offset_top = -56.0
-offset_right = 3154.0
-offset_bottom = 1186.0
+offset_right = 1769.0
+offset_bottom = -871.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.841, 1.841)
