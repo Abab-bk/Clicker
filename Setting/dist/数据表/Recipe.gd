@@ -25,7 +25,7 @@ var data = \
 60015:{ "id":60015,  "name":'龙蛋清酒',  "bonus":'click[20][time][efficiency][6]',  "desc":'喝下去感觉可以挑战整个世界。每秒点击变为 6 倍，持续 20 秒。',  "img":'', },
 60016:{ "id":60016,  "name":'猫头鹰眼泪酒',  "bonus":'add[10009][bonus][efficiency][1.1]',  "desc":'喝下去会对老鼠产生渴望。长生露获得金币 +0.1倍。',  "img":'', },
 60017:{ "id":60017,  "name":'彩虹舌头蜥蜴',  "bonus":'add[100010][bonus][efficiency][1.1]',  "desc":'传说这种蜥蜴拥有点石成金的能力，不过实测只有点石成泡泡的实力。五芒星获得金币 +0.1倍。',  "img":'', },
-60018:{ "id":60018,  "name":'Wabby Wabbo',  "bonus":'click[77][time][efficiency][777]',  "desc":'are you good MyRiXYa! 每秒点击变为 777 倍，持续 77 秒。',  "img":'', },
+60018:{ "id":60018,  "name":'Wabby Wabbo',  "bonus":'click[77][time][efficiency][7]',  "desc":'are you good MyRiXYa! 每秒点击变为 7 倍，持续 77 秒。',  "img":'', },
 60019:{ "id":60019,  "name":'幸运太阳荷包',  "bonus":'add[10011][bonus][efficiency][1.1]',  "desc":'戴上它，永远不会走霉运。太阳获得金币 +0.1 倍。',  "img":'', },
 60020:{ "id":60020,  "name":'双吐司月亮戒指',  "bonus":'add[10012][bonus][efficiency][1.1]',  "desc":'戴上它，永远不会烤熟吐司。月亮获得金币 +0.1 倍。',  "img":'', },
 60021:{ "id":60021,  "name":'象牙塔',  "bonus":'add[10013][bonus][efficiency][1.1]',  "desc":'象牙塔，是指象牙做的塔。黄金之塔获得金币 +0.1 倍。',  "img":'', },

@@ -8,18 +8,18 @@ var text:String = """
 """
 
 func _ready() -> void:
-	%Set1.pressed.connect(Callable(self, "yes"))
-	%Set2.pressed.connect(Callable(self, "no"))
-	%Desc.text = text.format({"get_chip": ChipsManager.chips.toAA(), "need_coins": ChipsManager.coins_needed.toAA()})
+    %Set1.pressed.connect(Callable(self, "yes"))
+    %Set2.pressed.connect(Callable(self, "no"))
+    %Desc.text = text.format({"get_chip": ChipsManager.chips.toAA(), "need_coins": ChipsManager.coins_needed.toAA()})
 
 func yes() -> void:
-	if Global.coins.isLessThanOrEqualTo(ChipsManager.coins_needed):
-		Uhd.new_message_popup("金币不足", "金币不足")
-		queue_free()
-	else:
-		ChipsManager.yes_fly()
-		queue_free()
+    if Global.coins.isLessThanOrEqualTo(ChipsManager.coins_needed):
+        Uhd.new_message_popup("金币不足", "金币不足")
+        queue_free()
+    else:
+        ChipsManager.yes_fly()
+        queue_free()
 
 func no() -> void:
-	Uhd.hide_color()
-	queue_free()
+    Uhd.hide_color()
+    queue_free()

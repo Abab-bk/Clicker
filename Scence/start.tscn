@@ -1,10 +1,51 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8338d2ms7ljm"]
+[gd_scene load_steps=11 format=3 uid="uid://b8338d2ms7ljm"]
 
 [ext_resource type="Texture2D" uid="uid://jkbq2d37t1hd" path="res://Asset/img/Background/texture.jpg" id="1_2u0cb"]
 [ext_resource type="Script" path="res://Script/start.gd" id="1_n1of5"]
 [ext_resource type="Texture2D" uid="uid://dx8c4js2trdip" path="res://Asset/img/Thing/AW.png" id="2_hikbh"]
 [ext_resource type="Texture2D" uid="uid://dp5u5tgi77t3o" path="res://Asset/UI/button/ClubButtonNormal.png" id="3_vtqai"]
 [ext_resource type="Texture2D" uid="uid://c1076r8wpxswr" path="res://Asset/UI/button/ClubButtonPress.png" id="4_oo0vb"]
+[ext_resource type="Texture2D" uid="uid://dxuftg7vtp6ah" path="res://Asset/UI/button/Tap_button_40.png" id="6_0sicc"]
+[ext_resource type="Texture2D" uid="uid://6qkbw4rmrcq3" path="res://Asset/img/Thing/Chest.png" id="7_xsvgi"]
+
+[sub_resource type="Animation" id="Animation_euy63"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Back:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Back/AcidWall:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Back/AcidWall:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_25y57"]
 resource_name = "come"
@@ -44,45 +85,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_euy63"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Back:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Back/AcidWall:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Back/AcidWall:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ypbft"]
@@ -166,3 +168,20 @@ texture_progress = ExtResource("4_oo0vb")
 libraries = {
 "": SubResource("AnimationLibrary_ypbft")
 }
+
+[node name="Login" type="TextureButton" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.902
+anchor_right = 0.5
+anchor_bottom = 0.902
+offset_left = -210.0
+offset_top = -59.8401
+offset_right = 210.0
+offset_bottom = 60.1599
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("6_0sicc")
+texture_pressed = ExtResource("7_xsvgi")

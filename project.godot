@@ -23,13 +23,15 @@ config/icon="res://Asset/Icon.png"
 
 BjTime="*res://Scence/BJTime.tscn"
 Global="*res://Script/Global/Global.gd"
+Tap="*res://Script/Global/Tap.gd"
+AdManager="*res://Script/Global/ADManager.gd"
 Settings="*res://Setting/dist/settings.gd"
 Uhd="*res://Scence/UI/UHD.tscn"
 SaveAndLoad="*res://Script/Global/SaveAndLoad.gd"
 EventManager="*res://Script/Global/EventManager.gd"
 GlobalTimer="*res://Script/Global/timer.gd"
-AdManager="*res://Script/Global/ADManager.gd"
 ChipsManager="*res://Script/Global/ChipsManager.gd"
+EnemyManager="*res://Script/Global/EnemyManager.gd"
 
 [display]
 
