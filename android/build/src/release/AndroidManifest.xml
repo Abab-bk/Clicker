@@ -18,11 +18,19 @@
         tools:replace="android:allowBackup,android:appCategory,android:isGame,android:hasFragileUserData,android:requestLegacyExternalStorage"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name="com.godot.game.GodotApp" tools:replace="android:screenOrientation,android:excludeFromRecents,android:resizeableActivity" tools:node="mergeOnlyAttributes" android:excludeFromRecents="false" android:screenOrientation="portrait" android:resizeableActivity="true">
+        <activity
+            android:name=".RealStart"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name="com.godot.game.GodotApp" tools:replace="android:screenOrientation,android:excludeFromRecents,android:resizeableActivity" tools:node="mergeOnlyAttributes" android:excludeFromRecents="false" android:screenOrientation="portrait" android:resizeableActivity="true">
+
         </activity>
     </application>
 </manifest>

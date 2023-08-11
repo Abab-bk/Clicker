@@ -1,0 +1,7 @@
+[config]
+name="FlowerTapSDK"
+binary_type="local"
+binary="RealTapSDK-release.aar"
+[dependencies]
+remote=["cn.leancloud:storage-android:8.2.19", "cn.leancloud:realtime-android:8.2.19", "androidx.appcompat:appcompat:1.6.1", "io.reactivex.rxjava2:rxandroid:2.1.1", "io.reactivex.rxjava2:rxandroid:2.1.1"]
+local=["AntiAddiction_3.18.9.aar", "AntiAddictionUI_3.18.9.aar", "lib-rtc-1.1.0-release.aar", "TapAchievement_3.18.9.aar", "TapBillboard_3.18.9.aar", "TapBootstrap_3.18.9.aar", "TapCommon_3.18.9.aar", "TapLicense_3.18.9.aar", "TapLogin_3.18.9.aar", "TapMoment_3.18.9.aar", "TapSupport_3.18.9.aar", "THEMIS-release3.0.7.aar"]

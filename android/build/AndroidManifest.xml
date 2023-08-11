@@ -2,14 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.godot.game"
+    android:installLocation="auto"
     android:versionCode="1"
-    android:versionName="1.0"
-    android:installLocation="auto" >
+    android:versionName="1.0">
 
     <supports-screens
-        android:smallScreens="true"
-        android:normalScreens="true"
         android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
         android:xlargeScreens="true" />
 
     <uses-feature
@@ -17,38 +17,40 @@
         android:required="true" />
 
     <application
-        android:label="@string/godot_project_name_string"
         android:allowBackup="false"
-        android:icon="@mipmap/icon"
         android:appCategory="game"
-        android:isGame="true"
         android:hasFragileUserData="false"
+        android:icon="@mipmap/icon"
+        android:isGame="true"
+        android:label="@string/godot_project_name_string"
         android:requestLegacyExternalStorage="false"
-        tools:ignore="GoogleAppIndexingWarning" >
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".RealStart"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <!-- Records the version of the Godot editor used for building -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <meta-data
             android:name="org.godotengine.editor.version"
             android:value="${godotEditorVersion}" />
 
         <activity
             android:name=".GodotApp"
-            android:label="@string/godot_project_name_string"
-            android:theme="@style/GodotAppSplashTheme"
-            android:launchMode="singleTask"
+            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|density|keyboard|navigation|screenLayout|uiMode"
             android:excludeFromRecents="false"
             android:exported="true"
-            android:screenOrientation="landscape"
-            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|density|keyboard|navigation|screenLayout|uiMode"
+            android:label="@string/godot_project_name_string"
+            android:launchMode="singleTask"
             android:resizeableActivity="false"
-            tools:ignore="UnusedAttribute" >
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:screenOrientation="landscape"
+            android:theme="@style/GodotAppSplashTheme"
+            tools:ignore="UnusedAttribute">
         </activity>
-
     </application>
 
 </manifest>
